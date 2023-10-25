@@ -17,6 +17,7 @@ function App() {
         <Routes>
           <Route path='/' Component={About} />
           <Route path='/tools' Component={StackTools} />
+          <Route path='*' Component={About} />
         </Routes>
       </main>
 
