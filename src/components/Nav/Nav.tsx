@@ -1,12 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Nav: React.FC = (): JSX.Element => {
 
-    return (<nav className="w-full container mx-auto">
+    return (<nav className="w-full container mx-auto bg-[--color-0]">
         <div className="w-full flex items-center justify-between">
-            <a className="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
-                Rain<span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">blur</span>
-            </a>
+            <div className="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl">
+                Juan <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-pink-500 to-purple-500"> Mansilla</span>
+            </div>
+            
             {/* 
             <ul className="leading-normal text-xl text-center items-center gap-x-5 pt-4 md:gap-x-4 lg:text-lg lg:flex  lg:pt-0">
                 <li className="py-2 lg:py-0 ">
