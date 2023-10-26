@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router'
 import { Nav } from './components/Nav/Nav'
 import { About } from './pages/About/About'
 import { StackTools } from './pages/StackTools/StackTools'
+import { Games } from './pages/Games/Games'
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
       <main>
         <Routes>
           <Route path='/' Component={About} />
-          <Route path='/tools' Component={StackTools} />
+          <Route path='/games' Component={Games} />
           <Route path='*' Component={About} />
         </Routes>
       </main>
