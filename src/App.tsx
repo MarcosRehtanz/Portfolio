@@ -5,11 +5,12 @@ import { Nav } from './components/Nav/Nav'
 import { About } from './pages/About/About'
 import { StackTools } from './pages/StackTools/StackTools'
 import { Games } from './pages/Games/Games'
+import { Navigator } from './components/Navigator/Navigator'
 
 function App() {
 
   return (<>
-    <div className='min-w-screen min-h-screen bg-[--color-0]'>
+    <div className='min-w-screen min-h-screen pb-1 bg-[--color-0]'>
       {/* <!--Nav--> */}
       <Nav />
 
@@ -22,13 +23,7 @@ function App() {
         </Routes>
       </main>
 
-
-      {/* <!--Footer--> */}
-      {/* <footer className="w-full pt-16 pb-6 text-sm text-center md:text-left fade-in">
-        <a className="text-gray-500 no-underline hover:no-underline" href="#">&copy; App 2020</a>
-        - Template by
-        <a className="text-gray-500 no-underline hover:no-underline" href="https://www.tailwindtoolbox.com">TailwindToolbox.com</a>
-      </footer> */}
+      <Navigator />
     </div>
   </>)
 }
