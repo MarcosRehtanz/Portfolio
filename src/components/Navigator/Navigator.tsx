@@ -6,7 +6,7 @@ export const Navigator = () => {
 
     const location = useLocation().pathname
 
-    return (<nav className="flex justify-center items-center sticky max-w-fit h-8 mb-2 bottom-2 mx-auto bg-slate-100 p-5 rounded-[40px] shadow-2xl">
+    return (<nav className="flex justify-center items-center sticky max-w-fit h-8 bottom-2 mx-auto bg-slate-100 p-5 rounded-[40px] shadow-2xl">
         {
             pages.map((page, i) => {
                 return <div key={page.name+i} className={`w-14 flex flex-col items-center rounded-full bg-slate-100 transition-all duration-500 scale-[0.5] ${page.path === location && 'scale-[1] -translate-y-2 shadow'}`}>
