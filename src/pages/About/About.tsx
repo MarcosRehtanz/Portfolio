@@ -1,6 +1,6 @@
 import React from 'react'
 import Photo from '../../assets/Profile.png'
-import { StackTools } from '../StackTools/StackTools'
+import { StackTools } from '../../components/StackTools/StackTools'
 
 export const About = () => {
     return (<div className="container md:pt-3 w-full mx-auto font-[--font-1] flex flex-wrap flex-col md:flex-row justify-center content-center items-center">
