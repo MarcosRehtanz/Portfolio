@@ -13,7 +13,7 @@ export const usePokemon = ( initialId: number = 1 ): Pokemon => {
 	
 	const [pokemon, setPokemon] = useState()
 	const [id, setId] = useState( initialId )
-	
+
 	useEffect(() => {
 		axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
 		.then(({ data }) => {

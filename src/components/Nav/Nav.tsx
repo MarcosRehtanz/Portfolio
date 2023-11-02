@@ -1,12 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { pokemonContext } from '../../context/allContext'
 
 export const Nav: React.FC = (): JSX.Element => {
+
+    const { pokemon }: any = useContext( pokemonContext )
 
     return (<nav className="w-full container mx-auto bg-[--color-0]">
         <div className="w-full flex items-center justify-between">
             <div className="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl">
-                Juan <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-pink-500 to-purple-500"> Mansilla</span>
+                Pokemon: <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-pink-500 to-purple-500"> {pokemon?.name}</span>
             </div>
             
             {/* 
