@@ -29,8 +29,8 @@ export const StackTools = () => {
                             </p><br />
                         </div>
                         <div className={blockTech}>
-                            {frontend.map((tool) => {
-                                return <a className={linkCard + (tool.invert && changeWhite)} href={tool.url} target="_blank" rel="noreferrer">
+                            {frontend.map((tool, i) => {
+                                return <a key={tool.name+i} className={linkCard + (tool.invert && changeWhite)} href={tool.url} target="_blank" rel="noreferrer">
                                     <img src={tool.src} alt={tool.name} className={imgCard} />
                                 </a>
                             })}
@@ -51,8 +51,8 @@ export const StackTools = () => {
                             </p><br />
                         </div>
                         <div className={blockTech}>
-                            {backend.map((tool) => {
-                                return <a className={linkCard + (tool.invert && changeWhite)} href={tool.url} target="_blank" rel="noreferrer">
+                            {backend.map((tool, i) => {
+                                return <a key={tool.name+i} className={linkCard + (tool.invert && changeWhite)} href={tool.url} target="_blank" rel="noreferrer">
                                     <img src={tool.src} alt={tool.name} className={imgCard} />
                                 </a>
                             })}
@@ -73,8 +73,8 @@ export const StackTools = () => {
                             </p><br />
                         </div>
                         <div className={blockTech}>
-                            {tools.map((tool) => {
-                                return <a className={linkCard + (tool.invert && changeWhite)} href={tool.url} target="_blank" rel="noreferrer">
+                            {tools.map((tool, i) => {
+                                return <a key={tool.name+i} className={linkCard + (tool.invert && changeWhite)} href={tool.url} target="_blank" rel="noreferrer">
                                     <img src={tool.src} alt={tool.name} className={imgCard} />
                                 </a>
                             })}
