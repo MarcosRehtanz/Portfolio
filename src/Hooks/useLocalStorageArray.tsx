@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export const useLocalStorage = (key: string) => {
+export const useLocalStorageArray = (key: string) => {
 
     const __localeStorage: any = window.localStorage.getItem(key)
     const [localStorage, setLocaleStorage] = useState(JSON.parse(__localeStorage))
