@@ -6,7 +6,7 @@ import { pokemonContext } from '../../context/allContext'
 export const Pokemon = () => {
 
     const { pokemon, id, previewPokemon, nextPokemon, inputPokemon } = usePokemon()
-    const { pokemon: pokemonInfo, setPokemon }: any = useContext(pokemonContext)
+    const { setPokemon, removePokemon }: any = useContext(pokemonContext)
 
     const handleChange = (value: number): void => {
         if (value < 1) inputPokemon(1010)
@@ -38,9 +38,13 @@ export const Pokemon = () => {
         <Button
             onClick={() => {
                 setPokemon(pokemon)
-                window.localStorage.setItem( 'pokemon', JSON.stringify( pokemon ) )
             }}
             text='capturar'
+            className='w-24 rounded-xl'
+        />
+        <Button
+            onClick={ removePokemon }
+            text='liberar'
             className='w-24 rounded-xl'
         />
 

@@ -8,7 +8,7 @@ import PokemonContext from './context/PokemonContext'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <PokemonContext>
+      <PokemonContext keyLocalStorage='pokemon' >
         <App />
       </PokemonContext>
     </BrowserRouter>
