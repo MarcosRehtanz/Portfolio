@@ -3,66 +3,13 @@ import { pokemonContext } from '../../context/allContext'
 
 export const Nav: React.FC = (): JSX.Element => {
 
-    const { pokemon }: any = useContext( pokemonContext )
+    const [ pokemon ]: any = useContext( pokemonContext )
 
     return (<nav className="w-full container mx-auto bg-[--color-0]">
         <div className="w-full flex items-center justify-between">
             <div className="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl">
                 Pokemon: <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-pink-500 to-purple-500"> {pokemon?.name}</span>
             </div>
-            
-            {/* 
-            <ul className="leading-normal text-xl text-center items-center gap-x-5 pt-4 md:gap-x-4 lg:text-lg lg:flex  lg:pt-0">
-                <li className="py-2 lg:py-0 ">
-                    <a
-                        className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
-                        href="#"
-                    >
-                        Blog
-                    </a>
-                </li>
-                <li className="py-2 lg:py-0 ">
-                    <a
-                        className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
-                        href="#"
-                    >
-                        Projects
-                    </a>
-                </li>
-                <li className="py-2 lg:py-0 ">
-                    <a
-                        className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
-                        href="#"
-                    >
-                        Apps
-                    </a>
-                </li>
-                <li className="py-2 lg:py-0 ">
-                    <a
-                        className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
-                        href="#"
-                    >
-                        Designs
-                    </a>
-                </li>
-                <li className="py-2 lg:py-0 ">
-                    <a
-                        className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
-                        href="#"
-                    >
-                        My Journey
-                    </a>
-                </li>
-                <li className="py-2 lg:py-0 ">
-                    <a
-                        className="text-red-600 hover:pb-4 hover:border-b-4 hover:border-yellow-400"
-                        href="#"
-                    >
-                        About
-                    </a>
-                </li>
-            </ul>
-            */}
 
             <div className="flex w-fit justify-end content-center">
                 <a className="inline-block text-blue-300 no-underline hover:text-pink-500 hover:text-underline text-center h-12 p-2 md:h-16 md:p-4 transform hover:scale-125 duration-300 ease-in-out" href="https://www.linkedin.com/in/juan-marcos-mansilla">

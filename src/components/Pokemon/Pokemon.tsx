@@ -6,7 +6,7 @@ import { pokemonContext } from '../../context/allContext'
 export const Pokemon = () => {
 
     const { pokemon, id, previewPokemon, nextPokemon, inputPokemon } = usePokemon()
-    const { setPokemon, removePokemon }: any = useContext(pokemonContext)
+    const [ _, setPokemon, removePokemon ] = useContext(pokemonContext)
 
     const handleChange = (value: number): void => {
         if (value < 1) inputPokemon(1010)
