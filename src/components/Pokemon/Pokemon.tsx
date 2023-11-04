@@ -42,11 +42,11 @@ export const Pokemon = () => {
             text='capturar'
             className='w-24 rounded-xl'
         />
-        <Button
+        {/* <Button
             onClick={ removePokemon }
             text='liberar'
             className='w-24 rounded-xl'
-        />
+        /> */}
 
     </div>)
 }
