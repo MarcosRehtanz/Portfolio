@@ -6,6 +6,7 @@ import { About } from './pages/About/About'
 import { Games } from './pages/Games/Games'
 import { Navigator } from './components/Navigator/Navigator'
 import { Info } from './pages/Info/Info'
+import { Office } from './pages/Office/Office'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path='/' Component={About} />
           <Route path='/games' Component={Games} />
+          {/* <Route path='/office' Component={Office} /> */}
           <Route path='/info' Component={Info} />
           <Route path='*' Component={About} />
         </Routes>
