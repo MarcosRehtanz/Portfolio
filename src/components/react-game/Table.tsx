@@ -6,16 +6,34 @@ import Player from './Player';
 const Table = (): React.JSX.Element => {
 
     const rand = (n: number): number => Math.floor(Math.random() * n)
-    // const cubes = (ctx: any) => {
 
-    //     ctx.fillStyle = `rgb(${rand(100) + 100}, 0, 0)`
-    //     ctx.fillRect(20, 20, 100, 100)
-    //     ctx.fillStyle = `rgb( 0, ${rand(100) + 100}, 0)`
-    //     ctx.fillRect(120, 120, 100, 100)
-    // }
 
-    const player = new Player({})
-    const game = [player.draw]
+
+
+    class player extends Player {
+
+        action = (ctx: any,): void => {
+            ctx.fillStyle = this.color
+            ctx.fillRect(this.position.x, this.position.y, this.size.x, this.size.y)
+            this.position.x += this.moveDirection.x
+            this.position.y += this.moveDirection.y
+        }
+    }
+
+
+    const { action: p1 } = new player({ color: 'rgb(200,50,50)' })
+    const { action: p2 } = new player({
+        color: 'rgb(50,200,100)',
+        controller: {
+            up: 'ArrowUp',
+            down: 'ArrowDown',
+            left: 'ArrowLeft',
+            right: 'ArrowRight',
+            stop: '0',
+        }
+    })
+
+    const game = [p1, p2]
 
     const canvasRef = useRef(null);
     const [intervalId, setIntervalId]: [number | undefined, Function] = useState()

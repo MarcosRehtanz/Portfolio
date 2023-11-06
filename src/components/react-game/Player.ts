@@ -5,13 +5,19 @@ interface Vector2D {
     y: number
 }
 interface InputPlayer {
+    size?: Vector2D
+    position?: Vector2D
+    controller?: Controller
     color?: string
-    position?: {
-        height: number
-        width: number
-        x: number
-        y: number
-    }
+    speed?: number
+    action?: Function
+}
+interface Controller {
+    up?: string
+    down?: string
+    left?: string
+    right?: string
+    stop?: string
 }
 interface Move {
     up: Function
@@ -21,19 +27,30 @@ interface Move {
     stop: Function
 }
 
+
 class Player {
 
-    constructor({ color, position }: InputPlayer) {
+    constructor({ position, size, controller, speed, color }: InputPlayer) {
         this.color = color || "rgb( 150, 125, 200)"
         this.size = {
-            x: position?.width || 20,
-            y: position?.height || 50,
+            x: size?.x || 10,
+            y: size?.y || 10,
         }
         this.position = {
             x: position?.x || 10,
             y: position?.y || 10,
         }
-        document.addEventListener('keyup', ({ key }) => {
+        this.controllers = {
+            up: controller?.up || this.controllers.up,
+            down: controller?.down || this.controllers.down,
+            left: controller?.left || this.controllers.left,
+            right: controller?.right || this.controllers.right,
+            stop: controller?.stop || this.controllers.stop,
+        }
+        this.speed = speed || 2
+        document.addEventListener('keydown', ({ key }) => {
+            // console.log(key);
+
             switch (key) {
                 case this.controllers.up:
                     this.actionMove.up()
@@ -47,8 +64,10 @@ class Player {
                 case this.controllers.left:
                     this.actionMove.left()
                     break;
-                default:
+                case this.controllers.stop:
                     this.actionMove.stop()
+                    break;
+                default:
                     break;
             }
         })
@@ -56,22 +75,16 @@ class Player {
 
     size: Vector2D
     position: Vector2D
+    speed: number
     color: string
     moveDirection: Vector2D = { x: 0, y: 0 }
-    controllers = { up: 'w', down: 's', left: 'a', right: 'd' }
+    controllers = { up: 'w', down: 's', left: 'a', right: 'd', stop: 'q' }
     actionMove: Move = {
-        up: () => { this.moveDirection.y = -1, this.moveDirection.x = 0 },
-        down: () => { this.moveDirection.y = 1, this.moveDirection.x = 0 },
-        left: () => { this.moveDirection.x = -1, this.moveDirection.y = 0 },
-        right: () => { this.moveDirection.x = 1, this.moveDirection.y = 0 },
-        stop: () => { this.moveDirection.y = 0, this.moveDirection.x = 0 },
-    }
-    draw = (ctx: any): void => {
-        ctx.fillStyle = this.color
-        ctx.fillRect(this.position.x, this.position.y, this.size.x, this.size.y)
-
-        this.position.x += this.moveDirection.x * 2
-        this.position.y += this.moveDirection.y * 2
+        up: () => { this.moveDirection = { y: -this.speed, x: 0 } },
+        down: () => { this.moveDirection = { y: this.speed, x: 0 } },
+        left: () => { this.moveDirection = { x: -this.speed, y: 0 } },
+        right: () => { this.moveDirection = { x: this.speed, y: 0 } },
+        stop: () => { this.moveDirection = { y: 0, x: 0 } },
     }
 
 }

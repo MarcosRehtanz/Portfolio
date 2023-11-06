@@ -24,18 +24,18 @@ interface Config {
     game?: Array<Function>
 }
 
-export const start = (input: InputStart): void => {
+const start = (input: InputStart): void => {
     let _temp = setInterval(() => {
         const ctx = context(input.canvasRef)
 
         ctx?.clearRect(0, 0, 240, 240)
         input.game?.map( f => f(ctx))
 
-    }, 1000/60)
+    }, 1000/30)
     input.setIntervalId(_temp)
 }
 
-export const stop = ({ canvasRef, setIntervalId, intervalId }: InputStop): void => {
+const stop = ({ canvasRef, setIntervalId, intervalId }: InputStop): void => {
 
     const ctx = context(canvasRef)
 
