@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Canvas } from './Canvas';
-import LogicGame from './LogicGame';
-import Player from './Player';
-import Map, { Map2 } from './Map';
-import { Matriz } from './utils';
+import { Canvas } from './Canvas.tsx';
+import LogicGame from './LogicGame.ts';
+import Player from './Player.ts';
+import { Map2 } from './Map.ts';
 
 const Table = (): React.JSX.Element => {
 
