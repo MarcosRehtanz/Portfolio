@@ -91,40 +91,56 @@ export class Map2 {
     length: number = 0
     map: Matriz
     size: Vector2D
-    draw = (ctx: any) => {
+    drawBox = async (context: any, { color, position, size }: {
+        color: string,
+        position: Vector2D,
+        size: Vector2D,
+    }): Promise<void> => {
 
+        return new Promise((resolve, reject) => {
+            try {
+
+                context.fillStyle = 'rgb(200,50,50)'
+
+                context.fillRect(
+                    position.x,
+                    position.y,
+                    size.x,
+                    size.y
+                )
+            } catch (error) {
+                reject(error)
+            }
+        })
+
+    }
+    draw = (ctx: any) => {
 
         this.list.forEach(map => {
 
-            const position = {
+            const position: Vector2D = {
                 x: map.position.x * this.size.x + 2,
                 y: map.position.y * this.size.y + 2,
             }
-            const size = {
+            const size: Vector2D = {
                 x: this.size.x - 4,
                 y: this.size.y - 4,
             }
 
-            ctx.fillStyle = 'rgb(200,50,50)'
-            ctx.fillRect(
-                position.x,
-                position.y,
-                size.x,
-                size.y
-            )
+
+            this.drawBox(ctx, { color: 'rgb(200,50,50)', position, size })
+                .catch(error => {})
 
             if (map.pattern !== null) {
-                // console.log(map.pattern);
 
-                // ctx.fillStyle = 'rgb(50,200,50)'
-                ctx.fillStyle = 'rgb(200,50,50)'
-
-                ctx.fillRect(
-                    position.x + (position.x - 2 - map.pattern?.x * this.size.x) / -2,
-                    position.y + (position.y - 2 - map.pattern?.y * this.size.y) / -2,
-                    size.x,
-                    size.y
-                )
+                this.drawBox(ctx, {
+                    color: 'rgb(200,50,50)',
+                    position: {
+                        x: position.x + (map.position.x - map.pattern?.x) * this.size.x / -2,
+                        y: position.y + (map.position.y - map.pattern?.y) * this.size.y / -2,
+                    },
+                    size
+                }).catch(error => {})
             }
         })
     }

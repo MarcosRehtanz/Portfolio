@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Canvas } from './Canvas';
 import LogicGame from './LogicGame';
 import Player from './Player';
@@ -44,6 +44,9 @@ const Table = (): React.JSX.Element => {
     const [intervalId, setIntervalId]: [number | undefined, Function] = useState()
     const { start, stop } = LogicGame({ canvasRef, intervalId, setIntervalId, game })
 
+    useEffect(()=> {
+        return stop()
+    },[])
 
     return (
         <div className='flex flex-col items-center justify-center text-white'>

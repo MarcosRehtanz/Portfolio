@@ -5,37 +5,25 @@ export const context = (canvasRef: React.MutableRefObject<any>): any => {
     return canvas?.getContext("2d")
 }
 
-
-type Ref = React.MutableRefObject<null>
-interface InputStart {
-    canvasRef: Ref
-    setIntervalId: Function
-    game?: Array<Function>
-}
-interface InputStop {
-    canvasRef: Ref
+interface Config {
+    canvasRef: React.MutableRefObject<null>
     intervalId: number | undefined
     setIntervalId: Function
-}
-interface Config {
-    canvasRef: Ref
-    intervalId: number | undefined 
-    setIntervalId: Function
     game?: Array<Function>
 }
 
-const start = (input: InputStart): void => {
+const start = (input: Config): void => {
+
     let _temp = setInterval(() => {
         const ctx = context(input.canvasRef)
 
         ctx?.clearRect(0, 0, 240, 240)
-        input.game?.map( f => f(ctx))
-
-    }, 1000/30)
+        input.game?.map(f => f(ctx))
+    }, 1000 / 30)
     input.setIntervalId(_temp)
 }
 
-const stop = ({ canvasRef, setIntervalId, intervalId }: InputStop): void => {
+const stop = ({ canvasRef, setIntervalId, intervalId }: Config): void => {
 
     const ctx = context(canvasRef)
 
@@ -50,7 +38,7 @@ const LogicGame = (config: Config): {
     start: Function,
     stop: Function
 } => {
-    
+
     return {
         start: () => start(config),
         stop: () => stop(config)
