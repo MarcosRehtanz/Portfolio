@@ -1,25 +1,22 @@
 import React, { useState } from 'react'
+import { Vector2D } from './types'
 
-interface Vector2D {
-    x: number
-    y: number
-}
-interface InputPlayer {
-    size?: Vector2D
-    position?: Vector2D
-    controller?: Controller
-    color?: string
-    speed?: number
-    action?: Function
-}
-interface Controller {
+interface InputController {
     up?: string
     down?: string
     left?: string
     right?: string
     stop?: string
 }
-interface Move {
+interface InputPlayer {
+    size?: Vector2D
+    position?: Vector2D
+    controller?: InputController
+    color?: string
+    speed?: number
+    action?: Function
+}
+interface ActionMove {
     up: Function
     down: Function
     left: Function
@@ -78,8 +75,8 @@ class Player {
     speed: number
     color: string
     moveDirection: Vector2D = { x: 0, y: 0 }
-    controllers = { up: 'w', down: 's', left: 'a', right: 'd', stop: 'q' }
-    actionMove: Move = {
+    controllers: InputController = { up: 'w', down: 's', left: 'a', right: 'd', stop: 'q' }
+    actionMove: ActionMove = {
         up: () => { this.moveDirection = { y: -this.speed, x: 0 } },
         down: () => { this.moveDirection = { y: this.speed, x: 0 } },
         left: () => { this.moveDirection = { x: -this.speed, y: 0 } },

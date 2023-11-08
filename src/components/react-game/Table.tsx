@@ -2,13 +2,10 @@ import React, { useRef, useState } from 'react'
 import { Canvas } from './Canvas';
 import LogicGame from './LogicGame';
 import Player from './Player';
+import Map, { Map2 } from './Map';
+import { Matriz } from './utils';
 
 const Table = (): React.JSX.Element => {
-
-    const rand = (n: number): number => Math.floor(Math.random() * n)
-
-
-
 
     class player extends Player {
 
@@ -32,8 +29,16 @@ const Table = (): React.JSX.Element => {
             stop: '0',
         }
     })
+    // console.log('***');
 
-    const game = [p1, p2]
+    const size = 20
+    const l = 12
+    const map2 = new Map2(0, { x: size, y: size }, { x: l, y: l })
+    console.log(map2);
+
+
+
+    const game = [map2.draw]
 
     const canvasRef = useRef(null);
     const [intervalId, setIntervalId]: [number | undefined, Function] = useState()
