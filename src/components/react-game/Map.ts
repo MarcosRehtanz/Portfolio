@@ -3,6 +3,9 @@ import utils, { Matriz, dir, nDir, random, vectorDir } from "./utils"
 
 type List = Array<Map2>
 
+interface Vector3D extends Vector2D {
+    z: number
+}
 
 interface Mapa {
     position: Vector2D

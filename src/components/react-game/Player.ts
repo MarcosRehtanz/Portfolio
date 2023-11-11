@@ -38,35 +38,19 @@ class Player {
             y: position?.y || 10,
         }
         this.controllers = {
-            up: controller?.up || this.controllers.up,
-            down: controller?.down || this.controllers.down,
-            left: controller?.left || this.controllers.left,
-            right: controller?.right || this.controllers.right,
-            stop: controller?.stop || this.controllers.stop,
+            [controller?.up || 'w']: 'up',
+            [controller?.down || 's']: 'down',
+            [controller?.left || 'a']: 'left',
+            [controller?.right || 'd']: 'right',
+            [controller?.stop || 'q']: 'stop',
         }
         this.speed = speed || 2
         document.addEventListener('keydown', ({ key }) => {
             // console.log(key);
-
-            switch (key) {
-                case this.controllers.up:
-                    this.actionMove.up()
-                    break;
-                case this.controllers.down:
-                    this.actionMove.down()
-                    break;
-                case this.controllers.right:
-                    this.actionMove.right()
-                    break;
-                case this.controllers.left:
-                    this.actionMove.left()
-                    break;
-                case this.controllers.stop:
-                    this.actionMove.stop()
-                    break;
-                default:
-                    break;
-            }
+            // console.log(this.controllers[key]);
+            try {
+                this.actionMove[this.controllers[key]]()
+            } catch (error) { }
         })
     }
 
@@ -75,7 +59,7 @@ class Player {
     speed: number
     color: string
     moveDirection: Vector2D = { x: 0, y: 0 }
-    controllers: InputController = { up: 'w', down: 's', left: 'a', right: 'd', stop: 'q' }
+    controllers: InputController
     actionMove: ActionMove = {
         up: () => { this.moveDirection = { y: -this.speed, x: 0 } },
         down: () => { this.moveDirection = { y: this.speed, x: 0 } },

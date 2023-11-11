@@ -1,6 +1,6 @@
 import React from 'react'
 import { Pokemon } from '../../components/Pokemon/Pokemon.tsx'
-import Table from '../../components/react-game/Table.tsx'
+import Table from '../../components/react-game/table.tsx'
 
 export const Games = () => {
 
