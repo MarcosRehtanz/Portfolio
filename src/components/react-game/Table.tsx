@@ -1,38 +1,45 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Canvas } from './Canvas.tsx';
 import LogicGame from './LogicGame.ts';
-import Player from './Player.ts';
+import PlayerModel from './PlayerModel.ts';
 import { Map2 } from './Map.ts';
 import { useToggle } from '../../Hooks/useToggle.ts';
+import Player from './Player.ts';
 
-const Table = (): React.JSX.Element => {
-
-    //? PLAYER
-    class player extends Player {
-        action = (ctx: any,): void => {
-            ctx.fillStyle = this.color
-            ctx.fillRect(this.position.x, this.position.y, this.size.x, this.size.y)
-            this.position.x += this.moveDirection.x
-            this.position.y += this.moveDirection.y
-        }
-    }
-    // const { action: p1 } = new player({ color: 'rgb(200,50,50)' })
-    const p2 = new player({
-        color: 'rgb(50,200,100)',
-        controller: {
-            up: 'ArrowUp',
-            down: 'ArrowDown',
-            left: 'ArrowLeft',
-            right: 'ArrowRight',
-            stop: '0',
-        }
-    })
+const initial = () => {
 
     // console.log('***');
     //? MAPA
-    const size = 10, l = 24;
-    const map2 = new Map2(0, { x: size, y: size }, { x: l, y: l })
-    // console.log(map2);
+    const l = 12, size = 240 / l;
+    const map2 = new Map2({
+        length: 0,
+        size: { x: 20, y: 20 }
+    })
+
+    //? PLAYER
+    // const { action: p1 } = new player({ color: 'rgb(200,50,50)' })
+    const p2 = new Player({
+        color: 'rgb(50,200,100)',
+        // controller: {
+        //     up: 'ArrowUp',
+        //     down: 'ArrowDown',
+        //     left: 'ArrowLeft',
+        //     right: 'ArrowRight',
+        //     stop: '0',
+        // }
+    })
+
+    p2.map = map2.map
+    p2.list = map2.list
+
+    return { map2, p2 }
+}
+
+const Table = (): React.JSX.Element => {
+
+
+
+    const [{ map2, p2 }] = useState(initial())
 
     const game = [map2.draw, p2.action]
 
@@ -46,12 +53,11 @@ const Table = (): React.JSX.Element => {
     useEffect(() => {
         return stop()
     }, [])
+    // console.log(canvasRef);
+
 
     return (
         <div className='flex flex-col items-center justify-center text-white'>
-            <Canvas
-                canvasRef={canvasRef}
-            />
             {canvasRef && toggle
                 ? <button onClick={() => {
                     start()
@@ -61,6 +67,10 @@ const Table = (): React.JSX.Element => {
                     stop()
                     toggleOn()
                 }}>Finish</button>
+            }
+            {!toggle && <Canvas
+                canvasRef={canvasRef}
+            />
             }
         </div>
     )

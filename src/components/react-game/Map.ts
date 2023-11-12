@@ -1,3 +1,4 @@
+import Player from "./Player"
 import { Vector2D } from "./types"
 import utils, { Matriz, dir, nDir, random, vectorDir } from "./utils"
 
@@ -10,24 +11,33 @@ interface Vector3D extends Vector2D {
 interface Mapa {
     position: Vector2D
     pattern: Vector2D | null
-    Up?: Vector2D | Wall | null
-    Down?: Vector2D | Wall | null
-    Left?: Vector2D | Wall | null
-    Right?: Vector2D | Wall | null
+    Up?: Vector2D | Wall | number | null
+    Down?: Vector2D | Wall | number | null
+    Left?: Vector2D | Wall | number | null
+    Right?: Vector2D | Wall | number | null
 }
 type Wall = 'wall'
-
+interface InputMap {
+    length: number,
+    size: Vector2D,
+    map?: Vector2D,
+    start?: Vector2D
+    players?: Player[]
+}
 export class Map2 {
-    constructor(length: number, size: Vector2D, map?: Vector2D, start?: Vector2D) {
+    constructor({ length, size, map, start, players }: InputMap) {
 
-        this.map = map ? new Matriz(map.x, map.y) : new Matriz(4, 4)
-
+        this.map = map ? new Matriz(map.x, map.y) : new Matriz(240 / size?.x, 240 / size?.y)
         this.size = size
+
+        // this.player = new Player({
+        //     color: 'rgb(50,200,100)',
+        // })
 
         length = length <= 0
             ? map
                 ? map.x * map.y
-                : 16
+                : 240 / size.x * 240 / size.y
             : length
 
         while (length !== this.length) {
@@ -42,10 +52,11 @@ export class Map2 {
 
                 let current = this.list[0]
                 let freeDir = false
-                console.log();
+                let R = 0
 
                 while (!freeDir) {
-                    current = this.list[random(this.length - 1)]
+                    R = random(this.length - 1)
+                    current = this.list[R]
                     const { y, x } = current.position
 
                     let a = x === 0 ? false : this.map[y][x - 1] === 0
@@ -76,10 +87,11 @@ export class Map2 {
                         : false
                 }
 
+                this.list[R][dir[r]] = this.length
                 this.list.push({
                     position: start ? start : { x, y },
                     pattern: current.position,
-                    [nDir[r]]: current.position,
+                    [nDir[r]]: R,
                 })
 
                 this.map[y][x] = this.length + 1
@@ -88,13 +100,18 @@ export class Map2 {
 
             this.length++
         }
+        
+        // this.player.map = this.map
+        // this.player.list = this.list
 
     }
+    player: Player
     list: Array<Mapa>
-    length: number = 0
+    length = 0
     map: Matriz
     size: Vector2D
-    drawBox = async (context: any, { color, position, size }: {
+    sizeWall = 2
+    private drawBox = async (context: any, { color, position, size }: {
         color: string,
         position: Vector2D,
         size: Vector2D,
@@ -103,7 +120,7 @@ export class Map2 {
         return new Promise((resolve, reject) => {
             try {
 
-                context.fillStyle = 'rgb(200,50,50)'
+                context.fillStyle = color
 
                 context.fillRect(
                     position.x,
@@ -122,28 +139,28 @@ export class Map2 {
         this.list.forEach(map => {
 
             const position: Vector2D = {
-                x: map.position.x * this.size.x + 2,
-                y: map.position.y * this.size.y + 2,
+                x: map.position.x * this.size.x + this.sizeWall,
+                y: map.position.y * this.size.y + this.sizeWall,
             }
             const size: Vector2D = {
-                x: this.size.x - 4,
-                y: this.size.y - 4,
+                x: this.size.x - this.sizeWall * 2,
+                y: this.size.y - this.sizeWall * 2,
             }
 
 
-            this.drawBox(ctx, { color: 'rgb(200,50,50)', position, size })
-                .catch(error => {})
+            this.drawBox(ctx, { color: 'rgb(37,84,84)', position, size })
+                .catch(error => { })
 
             if (map.pattern !== null) {
 
                 this.drawBox(ctx, {
-                    color: 'rgb(200,50,50)',
+                    color: 'rgb(37,84,84)',
                     position: {
-                        x: position.x + (map.position.x - map.pattern?.x) * this.size.x / -2,
-                        y: position.y + (map.position.y - map.pattern?.y) * this.size.y / -2,
+                        x: position.x + (map.position.x - map.pattern?.x) * this.size.x / -this.sizeWall,
+                        y: position.y + (map.position.y - map.pattern?.y) * this.size.y / -this.sizeWall,
                     },
                     size
-                }).catch(error => {})
+                }).catch(error => { })
             }
         })
     }

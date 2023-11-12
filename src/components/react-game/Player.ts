@@ -1,73 +1,35 @@
-import React, { useState } from 'react'
-import { Vector2D } from './types'
+import PlayerModel from "./PlayerModel";
+import { Vector2D } from "./types";
 
-interface InputController {
-    up?: string
-    down?: string
-    left?: string
-    right?: string
-    stop?: string
+const Action = (
+    ctx: any,
+    color: string,
+    position: Vector2D,
+    size: Vector2D,
+    moveDirection: Vector2D,
+) => {
+
+    return new Promise((resolve, reject) => {
+        ctx.fillStyle = color
+        ctx.fillRect(position.x + 20 / 2 - size.x / 2, position.y + 20 / 2 - size.y / 2, size.x, size.y)
+        position.x += moveDirection.x
+        position.y += moveDirection.y
+    })
+
 }
-interface InputPlayer {
-    size?: Vector2D
-    position?: Vector2D
-    controller?: InputController
-    color?: string
-    speed?: number
-    action?: Function
-}
-interface ActionMove {
-    up: Function
-    down: Function
-    left: Function
-    right: Function
-    stop: Function
-}
+class Player extends PlayerModel {
+    action = (ctx: any,): void => {
 
-
-class Player {
-
-    constructor({ position, size, controller, speed, color }: InputPlayer) {
-        this.color = color || "rgb( 150, 125, 200)"
-        this.size = {
-            x: size?.x || 10,
-            y: size?.y || 10,
-        }
-        this.position = {
-            x: position?.x || 10,
-            y: position?.y || 10,
-        }
-        this.controllers = {
-            [controller?.up || 'w']: 'up',
-            [controller?.down || 's']: 'down',
-            [controller?.left || 'a']: 'left',
-            [controller?.right || 'd']: 'right',
-            [controller?.stop || 'q']: 'stop',
-        }
-        this.speed = speed || 2
-        document.addEventListener('keydown', ({ key }) => {
-            // console.log(key);
-            // console.log(this.controllers[key]);
-            try {
-                this.actionMove[this.controllers[key]]()
-            } catch (error) { }
-        })
+        Action(ctx,
+            this.color,
+            this.position,
+            this.size,
+            this.moveDirection,
+        ).catch(error => { })
+        this.moveDirection = this.validatePosition() ? { x: 0, y: 0, } : this.moveDirection
     }
-
-    size: Vector2D
-    position: Vector2D
-    speed: number
-    color: string
-    moveDirection: Vector2D = { x: 0, y: 0 }
-    controllers: InputController
-    actionMove: ActionMove = {
-        up: () => { this.moveDirection = { y: -this.speed, x: 0 } },
-        down: () => { this.moveDirection = { y: this.speed, x: 0 } },
-        left: () => { this.moveDirection = { x: -this.speed, y: 0 } },
-        right: () => { this.moveDirection = { x: this.speed, y: 0 } },
-        stop: () => { this.moveDirection = { y: 0, x: 0 } },
-    }
-
 }
+
+
 
 export default Player

@@ -16,14 +16,14 @@ class Utils {
     Matriz: Matriz
 }
 export class Matriz {
-    constructor(x: number, y: number) {
+    constructor(x: number, y: number, initial?: any) {
         this.length = {x,y}
         while (y > 0) {
             y--
             this[y] = []
             let _temp = 0
             while (_temp < x) {
-                this[y][_temp] = 0
+                this[y][_temp] = initial ? initial : 0
                 _temp++
             }
         }
