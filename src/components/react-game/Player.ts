@@ -20,13 +20,35 @@ const Action = (
 class Player extends PlayerModel {
     action = (ctx: any,): void => {
 
-        Action(ctx,
-            this.color,
-            this.position,
-            this.size,
-            this.moveDirection,
-        ).catch(error => { })
-        this.moveDirection = this.validatePosition() ? { x: 0, y: 0, } : this.moveDirection
+        if (!this.gameOver) {
+
+            Action(ctx,
+                this.color,
+                this.position,
+                this.size,
+                this.moveDirection,
+            ).catch(() => { })
+            this.moveDirection = this.validatePosition() ? { x: 0, y: 0, } : this.moveDirection
+
+            Action(
+                ctx,
+                'rgb(250,190,25)',
+                {
+                    x: this.endpoint.x * 20,
+                    y: this.endpoint.y * 20
+                },
+                this.size,
+                this.moveDirection,
+            ).catch(() => { })
+
+            if (this.position.x / 20 === this.endpoint?.x && this.position.y / 20 === this.endpoint.y) {
+                this.state = 'win'
+                this.gameOver = true
+            }
+        } else {
+            this.state = 'inGame'
+            this.gameOver = false
+        }
     }
 }
 

@@ -17,72 +17,63 @@ const initial = () => {
     })
 
     //? PLAYER
-    const p1 = new Player({
-        position: { x: 220, y: 220 }, color: 'rgb(200,50,50)',
-        controller: {
-            Up: 'ArrowUp',
-            Down: 'ArrowDown',
-            Left: 'ArrowLeft',
-            Right: 'ArrowRight',
-            stop: '0',
-            }
-        })
+    // const p1 = new Player({
+    //     position: { x: 220, y: 220 }, color: 'rgb(200,50,50)',
+    //     controller: {
+    //         Up: 'ArrowUp',
+    //         Down: 'ArrowDown',
+    //         Left: 'ArrowLeft',
+    //         Right: 'ArrowRight',
+    //         stop: '0',
+    //     }
+    // })
     const p2 = new Player({
-        color: 'rgb(50,200,100)'
+        color: 'rgb(50,200,100)',
+        // size: {x:5, y:10}
     })
 
     p2.map = map2.map
     p2.list = map2.list
-    p1.map = map2.map
-    p1.list = map2.list
+    p2.gameOver = false
+    p2.state = 'inGame'
+    p2.endpoint = map2.list[map2.list.length - 1].position
+    // p1.map = map2.map
+    // p1.list = map2.list
 
-    return { map2, players: [p1.action, p2.action] }
+    return { map2, players: [p2] }
 }
 
-const Table = (): React.JSX.Element => {
+const Table = ({toggleOff}): React.JSX.Element => {
 
+    //? HANDLER
+    const handleStartGame = () => {
+        start()
+        setState(initial())
+    }
+    const handleGameOver = () => {
+        // stop()
+        setState(initial())
+        toggleOff()
+    }
 
 
     const [{ map2, players }, setState] = useState(initial())
 
-    const game = [map2.draw, ...players]
+    const game = [map2, ...players]
 
-    const contain = useRef(null)
     const canvasRef = useRef(null);
-    const [intervalId, setIntervalId]: [number | undefined, Function] = useState()
-    const { start, stop } = LogicGame({ canvasRef, intervalId, setIntervalId, game })
-
-    //? TOGGLE
-    const { toggle, toggleOff, toggleOn } = useToggle(true)
+    const { start, stop } = LogicGame({ canvasRef, game, handleGameOver })
 
     useEffect(() => {
-        return stop()
+        handleStartGame()
     }, [])
 
+    return (<div>
+        <button onClick={toggleOff}>Here</button>
+        <Canvas canvasRef={canvasRef} />
+    </div>)
+    
 
-    return (
-        <div ref={contain} className='flex flex-col items-center justify-center text-white'>
-            {canvasRef && toggle
-                ? <button onClick={() => {
-                    start()
-                    toggleOff()
-                    setState(initial())
-                }}>Start</button>
-                : <button onClick={() => {
-                    stop()
-                    toggleOn()
-                }}>Finish</button>
-            }
-            {!toggle && <div>
-                <button onClick={() => contain?.current?.requestFullscreen?.()} >Full</button>
-                <button onClick={() => document?.exitFullscreen?.()} >Mid</button>
-                <Canvas
-                    canvasRef={canvasRef}
-                />
-            </div>
-            }
-        </div>
-    )
 }
 
 export default Table

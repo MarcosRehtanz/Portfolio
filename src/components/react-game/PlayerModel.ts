@@ -45,11 +45,15 @@ class PlayerModel {
             [controller?.Right || 'd']: 'Right',
             [controller?.stop || 'q']: 'stop',
         }
+        this.moveDirection = { x: 0, y: 0 }
         this.speed = speed || 4
         document.addEventListener('keydown', ({ key }) => {
 
 
-            if (this.controllers.hasOwnProperty(key)) {
+            if (
+                this.controllers.hasOwnProperty(key) &&
+                this.state === 'inGame'
+            ) {
 
                 let C: number = 0
                 try {
@@ -58,14 +62,15 @@ class PlayerModel {
                     console.log(error);
                     C = 0
                 }
-                
-                if (this.list[C - 1].hasOwnProperty(this.controllers[key])) {
+
+                if (this.list[C - 1].hasOwnProperty(this.controllers?.[key])) {
 
                     if (this.validatePosition())
                         this.moveDirection = this.actionMove[this.controllers[key]]()
 
                 }
             }
+            if (this.state !== 'inGame') this.moveDirection = { x: 0, y: 0 }
         })
         // document.addEventListener('keyup', ({ key }) => {
         //     if (this.controllers.hasOwnProperty(key))
@@ -91,7 +96,10 @@ class PlayerModel {
     map = new Matriz(4, 4)
     list: any[]
     size: Vector2D
+    gameOver = false
+    state: 'win' | 'lose' | 'inGame' = 'inGame'
     position: Vector2D
+    endpoint: Vector2D
     speed: number
     color: string
     moveDirection: Vector2D = { x: 0, y: 0 }

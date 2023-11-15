@@ -134,7 +134,7 @@ export class Map2 {
         })
 
     }
-    draw = (ctx: any) => {
+    action = (ctx: any) => {
 
         this.list.forEach(map => {
 
