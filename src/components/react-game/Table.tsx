@@ -17,32 +17,37 @@ const initial = () => {
     })
 
     //? PLAYER
-    // const { action: p1 } = new player({ color: 'rgb(200,50,50)' })
+    const p1 = new Player({
+        position: { x: 220, y: 220 }, color: 'rgb(200,50,50)',
+        controller: {
+            Up: 'ArrowUp',
+            Down: 'ArrowDown',
+            Left: 'ArrowLeft',
+            Right: 'ArrowRight',
+            stop: '0',
+            }
+        })
     const p2 = new Player({
-        color: 'rgb(50,200,100)',
-        // controller: {
-        //     up: 'ArrowUp',
-        //     down: 'ArrowDown',
-        //     left: 'ArrowLeft',
-        //     right: 'ArrowRight',
-        //     stop: '0',
-        // }
+        color: 'rgb(50,200,100)'
     })
 
     p2.map = map2.map
     p2.list = map2.list
+    p1.map = map2.map
+    p1.list = map2.list
 
-    return { map2, p2 }
+    return { map2, players: [p1.action, p2.action] }
 }
 
 const Table = (): React.JSX.Element => {
 
 
 
-    const [{ map2, p2 }] = useState(initial())
+    const [{ map2, players }, setState] = useState(initial())
 
-    const game = [map2.draw, p2.action]
+    const game = [map2.draw, ...players]
 
+    const contain = useRef(null)
     const canvasRef = useRef(null);
     const [intervalId, setIntervalId]: [number | undefined, Function] = useState()
     const { start, stop } = LogicGame({ canvasRef, intervalId, setIntervalId, game })
@@ -53,24 +58,28 @@ const Table = (): React.JSX.Element => {
     useEffect(() => {
         return stop()
     }, [])
-    // console.log(canvasRef);
 
 
     return (
-        <div className='flex flex-col items-center justify-center text-white'>
+        <div ref={contain} className='flex flex-col items-center justify-center text-white'>
             {canvasRef && toggle
                 ? <button onClick={() => {
                     start()
                     toggleOff()
+                    setState(initial())
                 }}>Start</button>
                 : <button onClick={() => {
                     stop()
                     toggleOn()
                 }}>Finish</button>
             }
-            {!toggle && <Canvas
-                canvasRef={canvasRef}
-            />
+            {!toggle && <div>
+                <button onClick={() => contain?.current?.requestFullscreen?.()} >Full</button>
+                <button onClick={() => document?.exitFullscreen?.()} >Mid</button>
+                <Canvas
+                    canvasRef={canvasRef}
+                />
+            </div>
             }
         </div>
     )

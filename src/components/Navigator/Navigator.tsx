@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { pages } from './pages'
+import { pages } from '../../pages/pages'
 
 export const Navigator = () => {
 

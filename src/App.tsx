@@ -3,10 +3,8 @@ import { Routes, Route } from 'react-router'
 
 import { Nav } from './components/Nav/Nav'
 import { About } from './pages/About/About'
-import { Games } from './pages/Games/Games'
 import { Navigator } from './components/Navigator/Navigator'
-import { Info } from './pages/Info/Info'
-import { Office } from './pages/Office/Office'
+import { pages } from './pages/pages'
 
 function App() {
 
@@ -18,10 +16,11 @@ function App() {
       {/* <!--Main--> */}
       <main>
         <Routes>
-          <Route path='/' Component={About} />
-          <Route path='/games' Component={Games} />
-          {/* <Route path='/office' Component={Office} /> */}
-          <Route path='/info' Component={Info} />
+          {
+            pages?.map( ({name, path, Component},i) => {
+              return <Route key={name+i} path={path} Component={Component} /> 
+            })
+          }
           <Route path='*' Component={About} />
         </Routes>
       </main>
