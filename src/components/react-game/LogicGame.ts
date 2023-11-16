@@ -20,13 +20,13 @@ const LogicGame = (config: Config): {
     let intervalId = []
     const setIntervalId = (arr: any) => intervalId = arr
 
-    const start = (input: Config): void => {
+    const start = (): void => {
 
         let _temp = setInterval(() => {
-            const ctx = context(input.canvasRef)
+            const ctx = context(config.canvasRef)
 
             ctx?.clearRect(0, 0, 240, 240)
-            input.game?.map(f => {
+            config.game?.map(f => {
                 f?.action(ctx)
                 if (f?.gameOver) {
                     intervalId.map(Id => {
@@ -34,7 +34,7 @@ const LogicGame = (config: Config): {
                             clearInterval(Id)
 
                     })
-                    input.handleGameOver()
+                    config.handleGameOver()
 
                 }
             })
@@ -42,10 +42,17 @@ const LogicGame = (config: Config): {
 
         setIntervalId([...intervalId, _temp])
     }
+    const stop = () => {
+        intervalId.map(Id => {
+            if (Id)
+                clearInterval(Id)
+        })
+        config.handleGameOver()
+    }
 
     return {
-        start: () => start(config),
-        stop: () => {}
+        start,
+        stop
     }
 }
 

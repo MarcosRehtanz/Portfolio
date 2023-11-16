@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Canvas } from './Canvas.tsx';
 import LogicGame from './LogicGame.ts';
-import PlayerModel from './PlayerModel.ts';
 import { Map2 } from './Map.ts';
-import { useToggle } from '../../Hooks/useToggle.ts';
 import Player from './Player.ts';
+import { ToggleContext } from './context/index.tsx';
 
 const initial = () => {
 
@@ -17,16 +16,6 @@ const initial = () => {
     })
 
     //? PLAYER
-    // const p1 = new Player({
-    //     position: { x: 220, y: 220 }, color: 'rgb(200,50,50)',
-    //     controller: {
-    //         Up: 'ArrowUp',
-    //         Down: 'ArrowDown',
-    //         Left: 'ArrowLeft',
-    //         Right: 'ArrowRight',
-    //         stop: '0',
-    //     }
-    // })
     const p2 = new Player({
         color: 'rgb(50,200,100)',
         // size: {x:5, y:10}
@@ -43,7 +32,9 @@ const initial = () => {
     return { map2, players: [p2] }
 }
 
-const Table = ({toggleOff}): React.JSX.Element => {
+const Table = (): React.JSX.Element => {
+
+    const { toggleOff } = React.useContext(ToggleContext)
 
     //? HANDLER
     const handleStartGame = () => {
@@ -51,7 +42,7 @@ const Table = ({toggleOff}): React.JSX.Element => {
         setState(initial())
     }
     const handleGameOver = () => {
-        // stop()
+        players[0].gameOver = true
         setState(initial())
         toggleOff()
     }
@@ -69,10 +60,10 @@ const Table = ({toggleOff}): React.JSX.Element => {
     }, [])
 
     return (<div>
-        <button onClick={toggleOff}>Here</button>
+        {/* <button onClick={handleGameOver}>Here</button> */}
         <Canvas canvasRef={canvasRef} />
     </div>)
-    
+
 
 }
 
