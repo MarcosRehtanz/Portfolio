@@ -59,10 +59,7 @@ const Table = (): React.JSX.Element => {
         handleStartGame()
     }, [])
 
-    return (<div>
-        {/* <button onClick={handleGameOver}>Here</button> */}
-        <Canvas canvasRef={canvasRef} />
-    </div>)
+    return <Canvas canvasRef={canvasRef} />
 
 
 }

@@ -1,4 +1,6 @@
 import React from "react"
+import { pokemonContext } from '../../context/allContext'
+import { CachePokemonContext } from "../../pages/Games/Games"
 
 export const context = (canvasRef: React.MutableRefObject<any>): any => {
     const canvas = canvasRef?.current
@@ -16,6 +18,9 @@ const LogicGame = (config: Config): {
     start: Function,
     stop: Function
 } => {
+
+    const [_, setPokemon, removePokemon] = React.useContext(pokemonContext)
+    const { cachePokemon } = React.useContext(CachePokemonContext)
 
     let intervalId = []
     const setIntervalId = (arr: any) => intervalId = arr
@@ -35,7 +40,7 @@ const LogicGame = (config: Config): {
 
                     })
                     config.handleGameOver()
-
+                    setPokemon(cachePokemon)
                 }
             })
         }, 1000 / 30)
