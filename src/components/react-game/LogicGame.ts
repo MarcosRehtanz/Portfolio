@@ -2,6 +2,9 @@ import React from "react"
 import { pokemonContext } from '../../context/allContext'
 import { CachePokemonContext } from "../../pages/Games/Games"
 import { Timer, TimerState } from "./Timer"
+import { toast } from "react-toastify"
+import { img_xml } from "./xml"
+import { pokemonCapture } from "./notification"
 
 export const context = (canvasRef: React.MutableRefObject<any>): any => {
     const canvas = canvasRef?.current
@@ -37,7 +40,7 @@ const LogicGame = (config: Config): {
     const start = (): void => {
         setTimerGame(timer.time)
         setStateGame(timer.state)
-        
+
         let _temp = setInterval(() => {
             const ctx = context(config.canvasRef)
 
@@ -47,18 +50,23 @@ const LogicGame = (config: Config): {
 
                 if (timer.state === 0 && timer.time <= 0) f.canMove = true
                 if (timer.state !== 0 && timer.time <= 0) f.canMove = false
-                
+
                 if (f?.gameOver) {
                     intervalId.map(Id => {
                         if (Id) clearInterval(Id)
                     })
                     config.handleGameOver()
                     setPokemon(cachePokemon)
+                    pokemonCapture({
+                        url: cachePokemon.sprites.front_default,
+                        name: cachePokemon.name
+                    })
+                    // toast.success(img_xml(cachePokemon.sprites.front_default))
                 }
             })
 
-            
-            if (timer.time > 0) setTimerGame((timer.go() ))
+
+            if (timer.time > 0) setTimerGame((timer.go()))
             else if (timer.state >= 0) {
                 const t = timer.next()
                 setTimerGame(t.time)

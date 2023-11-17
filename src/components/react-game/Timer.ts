@@ -26,7 +26,7 @@ export class Timer {
     fps: number
     start = 3
     inGame = 5
-    finish = 3
+    finish = 1
     time: number
     state = 0
 

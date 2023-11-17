@@ -4,6 +4,7 @@ import LogicGame from './LogicGame.ts';
 import { Map2 } from './Map.ts';
 import Player from './Player.ts';
 import { ToggleContext } from './context/index.tsx';
+import { toast } from 'react-toastify';
 
 const initial = () => {
 
