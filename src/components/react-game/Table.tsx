@@ -24,7 +24,6 @@ const initial = () => {
     p2.map = map2.map
     p2.list = map2.list
     p2.gameOver = false
-    p2.state = 'inGame'
     p2.endpoint = map2.list[map2.list.length - 1].position
     // p1.map = map2.map
     // p1.list = map2.list
@@ -53,14 +52,19 @@ const Table = (): React.JSX.Element => {
     const game = [map2, ...players]
 
     const canvasRef = useRef(null);
-    const { start, stop } = LogicGame({ canvasRef, game, handleGameOver })
+    const { start, stop, timerGame, stateGame } = LogicGame({ canvasRef, game, handleGameOver })
 
     useEffect(() => {
         handleStartGame()
     }, [])
 
-    return <Canvas canvasRef={canvasRef} />
-
+    return <>
+        <div className=' flex '>
+            <p className='text-red-50 relative top-0'>⌛: {timerGame}</p>
+            <p className='text-red-50 relative top-0'>🚩: {stateGame}</p>
+        </div>
+        <Canvas canvasRef={canvasRef} />
+    </>
 
 }
 

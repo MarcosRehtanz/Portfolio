@@ -1,6 +1,7 @@
 import React from "react"
 import { pokemonContext } from '../../context/allContext'
 import { CachePokemonContext } from "../../pages/Games/Games"
+import { Timer, TimerState } from "./Timer"
 
 export const context = (canvasRef: React.MutableRefObject<any>): any => {
     const canvas = canvasRef?.current
@@ -16,7 +17,10 @@ interface Config {
 
 const LogicGame = (config: Config): {
     start: Function,
-    stop: Function
+    stop: Function,
+    timerGame: number,
+    stateGame: number,
+    // timerGame: { time: number, state: number }
 } => {
 
     const [_, setPokemon, removePokemon] = React.useContext(pokemonContext)
@@ -25,25 +29,48 @@ const LogicGame = (config: Config): {
     let intervalId = []
     const setIntervalId = (arr: any) => intervalId = arr
 
-    const start = (): void => {
+    const fps = 30
+    let [timerGame, setTimerGame] = React.useState(0)
+    let [stateGame, setStateGame] = React.useState(0)
+    let timer = new Timer({ fps })
 
+    const start = (): void => {
+        setTimerGame(timer.time)
+        setStateGame(timer.state)
+        
         let _temp = setInterval(() => {
             const ctx = context(config.canvasRef)
 
             ctx?.clearRect(0, 0, 240, 240)
             config.game?.map(f => {
-                f?.action(ctx)
+                f?.action(ctx, { time: timer.time, state: timer.state })
+
+                if (timer.state === 0 && timer.time <= 0) f.canMove = true
+                if (timer.state !== 0 && timer.time <= 0) f.canMove = false
+                
                 if (f?.gameOver) {
                     intervalId.map(Id => {
-                        if (Id)
-                            clearInterval(Id)
-
+                        if (Id) clearInterval(Id)
                     })
                     config.handleGameOver()
                     setPokemon(cachePokemon)
                 }
             })
-        }, 1000 / 30)
+
+            
+            if (timer.time > 0) setTimerGame((timer.go() ))
+            else if (timer.state >= 0) {
+                const t = timer.next()
+                setTimerGame(t.time)
+                setStateGame(t.state)
+            } else {
+                intervalId.map(Id => {
+                    if (Id) clearInterval(Id)
+                })
+                config.handleGameOver()
+            }
+
+        }, 1000 / fps)
 
         setIntervalId([...intervalId, _temp])
     }
@@ -57,7 +84,9 @@ const LogicGame = (config: Config): {
 
     return {
         start,
-        stop
+        stop,
+        timerGame,
+        stateGame,
     }
 }
 

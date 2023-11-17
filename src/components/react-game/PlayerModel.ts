@@ -25,7 +25,6 @@ interface ActionMove {
     stop: Function
 }
 
-
 class PlayerModel {
 
     constructor({ position, size, controller, speed, color }: InputPlayer) {
@@ -52,7 +51,7 @@ class PlayerModel {
 
             if (
                 this.controllers.hasOwnProperty(key) &&
-                this.state === 'inGame'
+                this.canMove
             ) {
 
                 let C: number = 0
@@ -70,7 +69,7 @@ class PlayerModel {
 
                 }
             }
-            if (this.state !== 'inGame') this.moveDirection = { x: 0, y: 0 }
+            if (!this.canMove) this.moveDirection = { x: 0, y: 0 }
         })
         // document.addEventListener('keyup', ({ key }) => {
         //     if (this.controllers.hasOwnProperty(key))
@@ -96,8 +95,8 @@ class PlayerModel {
     map = new Matriz(4, 4)
     list: any[]
     size: Vector2D
+    canMove = false
     gameOver = false
-    state: 'win' | 'lose' | 'inGame' = 'inGame'
     position: Vector2D
     endpoint: Vector2D
     speed: number

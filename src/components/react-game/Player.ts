@@ -18,7 +18,7 @@ const Action = (
 
 }
 class Player extends PlayerModel {
-    action = (ctx: any,): void => {
+    action = (ctx: any, timer: { time: number, state: number }): void => {
 
         if (!this.gameOver) {
 
@@ -42,11 +42,11 @@ class Player extends PlayerModel {
             ).catch(() => { })
 
             if (this.position.x / 20 === this.endpoint?.x && this.position.y / 20 === this.endpoint.y) {
-                this.state = 'win'
+                this.canMove = false
                 this.gameOver = true
             }
         } else {
-            this.state = 'inGame'
+            this.canMove = true
             this.gameOver = false
         }
     }

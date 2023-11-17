@@ -4,15 +4,16 @@ interface C {
     canvasRef: React.MutableRefObject<null>
     width?: number
     height?: number
+    className?: string
 }
 
-export const Canvas = ({ canvasRef, width = 240, height = 240 }: C): React.JSX.Element => {
+export const Canvas = ({ className, canvasRef, width = 240, height = 240 }: C): React.JSX.Element => {
     return (
         <canvas
             ref={canvasRef}
             width={width}
             height={height}
-            className='border'
+            className={`border ${className}`}
         >
             An alternative text describing what your canvas displays.
         </canvas>
