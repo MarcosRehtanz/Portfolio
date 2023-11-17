@@ -1,9 +1,7 @@
 import React from "react"
 import { pokemonContext } from '../../context/allContext'
 import { CachePokemonContext } from "../../pages/Games/Games"
-import { Timer, TimerState } from "./Timer"
-import { toast } from "react-toastify"
-import { img_xml } from "./xml"
+import { Timer } from "./Timer"
 import { pokemonCapture } from "./notification"
 
 export const context = (canvasRef: React.MutableRefObject<any>): any => {
