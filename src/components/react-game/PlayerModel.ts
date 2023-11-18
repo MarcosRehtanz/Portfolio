@@ -3,16 +3,16 @@ import { Vector2D } from './types'
 import { Matriz } from './utils'
 
 interface InputController {
-    Up?: string
-    Down?: string
-    Left?: string
-    Right?: string
-    stop?: string
+    Up: string
+    Down: string
+    Left: string
+    Right: string
+    stop: string
 }
 interface InputPlayer {
     size?: Vector2D
     position?: Vector2D
-    controller?: InputController
+    controllers: InputController[]
     color?: string
     speed?: number
     action?: Function
@@ -27,7 +27,7 @@ interface ActionMove {
 
 class PlayerModel {
 
-    constructor({ position, size, controller, speed, color }: InputPlayer) {
+    constructor({ position, size, controllers, speed, color }: InputPlayer) {
         this.color = color || "rgb( 150, 125, 200)"
         this.size = {
             x: size?.x ? size?.x / 2 : 10,
@@ -38,13 +38,17 @@ class PlayerModel {
             x: position?.x || 0,
             y: position?.y || 0,
         }
-        this.controllers = {
-            [controller?.Up || 'w']: 'Up',
-            [controller?.Down || 's']: 'Down',
-            [controller?.Left || 'a']: 'Left',
-            [controller?.Right || 'd']: 'Right',
-            [controller?.stop || 'q']: 'stop',
-        }
+        controllers?.forEach(controller => {
+            this.controllers = {
+                ...this.controllers,
+                [controller.Up]: 'Up',
+                [controller.Down]: 'Down',
+                [controller.Left]: 'Left',
+                [controller.Right]: 'Right',
+                [controller.stop]: 'stop',
+            }
+        });
+
         this.moveDirection = { x: 0, y: 0 }
         this.speed = speed || 4
         document.addEventListener('keydown', ({ key }) => {
@@ -67,6 +71,30 @@ class PlayerModel {
 
                     if (this.validatePosition())
                         this.moveDirection = this.actionMove[this.controllers[key]]()
+
+                }
+            }
+            if (!this.canMove) this.moveDirection = { x: 0, y: 0 }
+        })
+        document.addEventListener('click', ({ target }) => {
+
+            if (
+                target?.id &&
+                this.canMove
+            ) {
+
+                let C: number = 0
+                try {
+                    C = this.map[Math.floor(this.position.y / this.sizeMap)][Math.floor(this.position.x / this.sizeMap)]
+                } catch (error) {
+                    console.log(error);
+                    C = 0
+                }
+
+                if (this.list[C - 1].hasOwnProperty(target.id)) {
+
+                    if (this.validatePosition())
+                        this.moveDirection = this.actionMove[target.id]()
 
                 }
             }
@@ -104,7 +132,7 @@ class PlayerModel {
     speed: number
     color: string
     moveDirection: Vector2D = { x: 0, y: 0 }
-    controllers: InputController
+    controllers: any
     stopMove = {
         Up: () => this.moveDirection = { y: 0, x: this.moveDirection.x },
         Down: () => this.moveDirection = { y: 0, x: this.moveDirection.x },
@@ -131,13 +159,18 @@ const PM = (props: InputPlayer) => {
         x: props.position?.x || 0,
         y: props.position?.y || 0,
     })
-    const controllers: InputController = {
-        [props.controller?.Up || 'w']: 'Up',
-        [props.controller?.Down || 's']: 'Down',
-        [props.controller?.Left || 'a']: 'Left',
-        [props.controller?.Right || 'd']: 'Right',
-        [props.controller?.stop || 'q']: 'stop',
-    }
+    const [controllers, setControllers]: any = useState()
+    let __controllers: any;
+    controllers.forEach(controller => {
+        __controllers = {
+            ...__controllers,
+            [controller.Up]: 'Up',
+            [controller.Down]: 'Down',
+            [controller.Left]: 'Left',
+            [controller.Right]: 'Right',
+            [controller.stop]: 'stop',
+        }
+    });
     const speed = props.speed || 2
     const [moveDirection, setMoveDirection] = useState({ x: 0, y: 0 })
     const stopMove = {

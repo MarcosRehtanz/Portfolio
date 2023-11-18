@@ -10,7 +10,7 @@ const Game = () => {
     const { toggle } = React.useContext(ToggleContext)
 
     return (toggle && <Modal>
-        <div ref={contain} className='bg-black'>
+        <div ref={contain} >
             {/* <button onClick={() => contain?.current?.requestFullscreen?.()} >Full</button>
         <button onClick={() => document?.exitFullscreen?.()} >Mid</button> */}
             <Table />

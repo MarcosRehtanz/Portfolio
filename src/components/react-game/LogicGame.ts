@@ -11,8 +11,9 @@ export const context = (canvasRef: React.MutableRefObject<any>): any => {
 
 interface Config {
     canvasRef: React.MutableRefObject<null>
-    game?: Array<any>
+    game: Array<any>
     handleGameOver: Function
+    timeLevel: number
 }
 
 
@@ -33,7 +34,7 @@ const LogicGame = (config: Config): {
     const fps = 30
     let [timerGame, setTimerGame] = React.useState(0)
     let [stateGame, setStateGame] = React.useState(0)
-    let timer = new Timer({ fps })
+    let timer = new Timer({ fps, inGame: config.timeLevel })
 
     const start = (): void => {
         setTimerGame(timer.time)
