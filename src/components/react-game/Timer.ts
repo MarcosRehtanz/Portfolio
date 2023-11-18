@@ -32,7 +32,7 @@ export class Timer {
 
     go = () => {
 
-        this.time = this.time - 1 / this.fps /2
+        this.time = this.time - 1 / this.fps
 
         return Math.ceil(this.time)
     }
