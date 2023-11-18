@@ -30,9 +30,10 @@ class PlayerModel {
     constructor({ position, size, controller, speed, color }: InputPlayer) {
         this.color = color || "rgb( 150, 125, 200)"
         this.size = {
-            x: size?.x || 10,
-            y: size?.y || 10,
+            x: size?.x ? size?.x / 2 : 10,
+            y: size?.y ? size?.y / 2 : 10,
         }
+        this.sizeMap = size?.x || 20
         this.position = {
             x: position?.x || 0,
             y: position?.y || 0,
@@ -56,7 +57,7 @@ class PlayerModel {
 
                 let C: number = 0
                 try {
-                    C = this.map[Math.floor(this.position.y / 20)][Math.floor(this.position.x / 20)]
+                    C = this.map[Math.floor(this.position.y / this.sizeMap)][Math.floor(this.position.x / this.sizeMap)]
                 } catch (error) {
                     console.log(error);
                     C = 0
@@ -80,13 +81,13 @@ class PlayerModel {
         let C1: number = 0
         let C2: number = 0
         try {
-            C1 = this.map[Math.floor(this.position.y / 20)][Math.floor(this.position.x / 20)]
+            C1 = this.map[Math.floor(this.position.y / this.sizeMap)][Math.floor(this.position.x / this.sizeMap)]
         } catch (error) {
             // console.log(error);
             C1 = 0
         }
         try {
-            C2 = this.map[Math.floor((this.position.y + 19) / 20)][Math.floor((this.position.x + 19) / 20)]
+            C2 = this.map[Math.floor((this.position.y + this.sizeMap - 1) / this.sizeMap)][Math.floor((this.position.x + this.sizeMap - 1) / this.sizeMap)]
         } catch (error) {
             C2 = 0
         }
@@ -95,6 +96,7 @@ class PlayerModel {
     map = new Matriz(4, 4)
     list: any[]
     size: Vector2D
+    sizeMap: number
     canMove = false
     gameOver = false
     position: Vector2D
@@ -120,7 +122,7 @@ class PlayerModel {
 }
 
 const PM = (props: InputPlayer) => {
-    const color = props.color || "rgb( 150, 125, 200)"
+    const color = props.color || "rgb( 150, 125, this.sizeMap0)"
     const size = {
         x: props.size?.x || 10,
         y: props.size?.y || 10,

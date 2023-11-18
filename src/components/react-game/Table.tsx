@@ -3,31 +3,28 @@ import { Canvas } from './Canvas.tsx';
 import LogicGame from './LogicGame.ts';
 import { Map2 } from './Map.ts';
 import Player from './Player.ts';
-import { ToggleContext } from './context/index.tsx';
-import { toast } from 'react-toastify';
+import { LevelContext, ToggleContext } from './context/index.tsx';
 
-const initial = () => {
+const initial = ({ sizeBlock, speed }) => {
 
     // console.log('***');
     //? MAPA
-    const l = 12, size = 240 / l;
     const map2 = new Map2({
         length: 0,
-        size: { x: 20, y: 20 }
+        size: { x: sizeBlock, y: sizeBlock }
     })
 
     //? PLAYER
     const p2 = new Player({
         color: 'rgb(50,200,100)',
-        // size: {x:5, y:10}
+        size: { x: sizeBlock, y: sizeBlock },
+        speed
     })
 
     p2.map = map2.map
     p2.list = map2.list
     p2.gameOver = false
     p2.endpoint = map2.list[map2.list.length - 1].position
-    // p1.map = map2.map
-    // p1.list = map2.list
 
     return { map2, players: [p2] }
 }
@@ -35,20 +32,22 @@ const initial = () => {
 const Table = (): React.JSX.Element => {
 
     const { toggleOff } = React.useContext(ToggleContext)
+    const { level } = React.useContext(LevelContext)
+
 
     //? HANDLER
     const handleStartGame = () => {
         start()
-        setState(initial())
+        setState(initial(level))
     }
     const handleGameOver = () => {
         players[0].gameOver = true
-        setState(initial())
+        setState(initial(level))
         toggleOff()
     }
 
 
-    const [{ map2, players }, setState] = useState(initial())
+    const [{ map2, players }, setState] = useState(initial(level))
 
     const game = [map2, ...players]
 
@@ -60,11 +59,18 @@ const Table = (): React.JSX.Element => {
     }, [])
 
     return <>
+        {stateGame && <p className='text-red-50 relative top-0'>⌛: {timerGame}</p>}
         <div className=' flex '>
-            <p className='text-red-50 relative top-0'>⌛: {timerGame}</p>
-            <p className='text-red-50 relative top-0'>🚩: {stateGame}</p>
+            {stateGame === 0 &&
+                <div className=' text-red-50 absolute z-50'>
+                    <div className='w-60 h-60 bg-[rgba(0,0,0,0.5)] flex items-center justify-center'>
+                        <h1 className='my-auto text-center scale-[4] ' >{timerGame}</h1>
+                    </div>
+                </div>
+            }
+            <Canvas canvasRef={canvasRef} />
         </div>
-        <Canvas canvasRef={canvasRef} />
+        {/* <p className='text-red-50 relative top-0'>🚩: {stateGame}</p> */}
     </>
 
 }

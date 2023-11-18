@@ -6,12 +6,13 @@ const Action = (
     color: string,
     position: Vector2D,
     size: Vector2D,
+    sizeMap: number,
     moveDirection: Vector2D,
 ) => {
 
     return new Promise((resolve, reject) => {
         ctx.fillStyle = color
-        ctx.fillRect(position.x + 20 / 2 - size.x / 2, position.y + 20 / 2 - size.y / 2, size.x, size.y)
+        ctx.fillRect(position.x + sizeMap / 2 - size.x / 2, position.y + sizeMap / 2 - size.y / 2, size.x, size.y)
         position.x += moveDirection.x
         position.y += moveDirection.y
     })
@@ -26,6 +27,7 @@ class Player extends PlayerModel {
                 this.color,
                 this.position,
                 this.size,
+                this.sizeMap,
                 this.moveDirection,
             ).catch(() => { })
             this.moveDirection = this.validatePosition() ? { x: 0, y: 0, } : this.moveDirection
@@ -34,14 +36,15 @@ class Player extends PlayerModel {
                 ctx,
                 'rgb(250,190,25)',
                 {
-                    x: this.endpoint.x * 20,
-                    y: this.endpoint.y * 20
+                    x: this.endpoint.x * this.sizeMap,
+                    y: this.endpoint.y * this.sizeMap
                 },
                 this.size,
+                this.sizeMap,
                 this.moveDirection,
             ).catch(() => { })
 
-            if (this.position.x / 20 === this.endpoint?.x && this.position.y / 20 === this.endpoint.y) {
+            if (this.position.x / this.sizeMap === this.endpoint?.x && this.position.y / this.sizeMap === this.endpoint.y) {
                 this.canMove = false
                 this.gameOver = true
             }

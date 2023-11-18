@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { usePokemon } from '../../Hooks/Pokemon/usePokemon'
 import { Button } from '../Button/Button'
-import { ToggleContext } from '../react-game/context'
+import { LevelContext, ToggleContext } from '../react-game/context'
 import { CachePokemonContext } from '../../pages/Games/Games'
 
 export const Pokemon = () => {
@@ -9,6 +9,7 @@ export const Pokemon = () => {
     const { pokemon, id, previewPokemon, nextPokemon, inputPokemon } = usePokemon()
     const { toggleOn } = useContext(ToggleContext)
     const { setCachePokemon } = useContext(CachePokemonContext)
+    const { setLevel } = useContext(LevelContext)
 
     const handleChange = (value: number): void => {
         if (value < 1) inputPokemon(1010)
@@ -41,6 +42,7 @@ export const Pokemon = () => {
             onClick={() => {
                 setCachePokemon(pokemon)
                 toggleOn()
+                setLevel(id)
             }}
             text='capturar'
             className='w-24 rounded-xl'

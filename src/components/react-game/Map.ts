@@ -27,7 +27,7 @@ interface InputMap {
 export class Map2 {
     constructor({ length, size, map, start, players }: InputMap) {
 
-        this.map = map ? new Matriz(map.x, map.y) : new Matriz(240 / size?.x, 240 / size?.y)
+        this.map = map ? new Matriz(map.x, map.y) : new Matriz(Math.floor(240 / size?.x), Math.floor(240 / size?.y))
         this.size = size
 
         // this.player = new Player({
@@ -37,7 +37,7 @@ export class Map2 {
         length = length <= 0
             ? map
                 ? map.x * map.y
-                : 240 / size.x * 240 / size.y
+                : Math.floor(240 / size.x) * Math.floor(240 / size.y)
             : length
 
         while (length !== this.length) {
@@ -100,7 +100,7 @@ export class Map2 {
 
             this.length++
         }
-        
+
         // this.player.map = this.map
         // this.player.list = this.list
 

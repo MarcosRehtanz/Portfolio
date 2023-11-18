@@ -1,7 +1,7 @@
 import React from 'react'
 import { Pokemon } from '../../components/Pokemon/Pokemon.tsx'
 import Game from '../../components/react-game/Game.tsx'
-import { ToggleProvider } from '../../components/react-game/context'
+import GameProvider from '../../components/react-game/context'
 
 export const CachePokemonContext: React.Context<any> = React.createContext({})
 
@@ -11,10 +11,10 @@ export const Games = () => {
 
     return (<div>
         <CachePokemonContext.Provider value={{cachePokemon, setCachePokemon}}>
-            <ToggleProvider>
+            <GameProvider>
                 <Pokemon />
                 <Game />
-            </ToggleProvider>
+            </GameProvider>
         </CachePokemonContext.Provider>
     </div>)
 }
