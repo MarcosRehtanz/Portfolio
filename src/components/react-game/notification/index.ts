@@ -1,4 +1,4 @@
-import Capture from "./capture.tsx";
+import Capture from "./Capture.tsx";
 
 
 export const pokemonCapture = Capture()
