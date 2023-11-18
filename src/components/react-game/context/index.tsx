@@ -12,10 +12,10 @@ const GameProvider = ({ children }) => {
     const selectLevel = (l: number) => {
         switch (l) {
             case 1: return { sizeBlock: 48, speed: 6 }
-            case 2: return { sizeBlock: 40, speed: 6 }
-            case 3: return { sizeBlock: 30, speed: 5 }
-            case 4: return { sizeBlock: 24, speed: 6 }
-            default: return { sizeBlock: 20, speed: 6 }
+            case 2: return { sizeBlock: 40, speed: 8 }
+            case 3: return { sizeBlock: 30, speed: 6 }
+            case 4: return { sizeBlock: 24, speed: 8 }
+            default: return { sizeBlock: 20, speed: 10 }
         }
     }
     const setter = (id: number) => setLevel(selectLevel(Math.ceil(id / 202)))
