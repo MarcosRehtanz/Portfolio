@@ -17,7 +17,7 @@ export const Pokemon = () => {
         else inputPokemon(value)
     }
 
-    return (<div className='max-w-fit mx-auto flex flex-col items-center'>
+    return (<div className='w-64 h-60 m-auto p-6 rounded-xl bg-[--color-1] flex flex-col justify-center items-center'>
 
         <div>
             <Button
@@ -34,8 +34,12 @@ export const Pokemon = () => {
         </div>
 
         <div className='flex flex-col items-center'>
-            <h1 className='text-3xl font-bold text-white'>{pokemon?.name}</h1>
-            <img className='w-24' src={pokemon?.sprites.front_default} alt={pokemon?.name} />
+            <div className='h-9'>
+                <h1 className='text-3xl font-bold text-white'>{pokemon?.name}</h1>
+            </div>
+            <div className='w-24 h-24'>
+                <img className='w-24' src={pokemon?.sprites.front_default} alt={pokemon?.name} />
+            </div>
         </div>
 
         <Button

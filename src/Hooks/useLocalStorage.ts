@@ -9,7 +9,12 @@ interface UseLocalStorage {
 export const useLocalStorage = ( key: string ): UseLocalStorage => {
 
     const importLocalStorage: any = window.localStorage.getItem( key )
-    const parseLocalStorage = JSON.parse( importLocalStorage )
+    let parseLocalStorage
+    try {
+        parseLocalStorage = JSON.parse( importLocalStorage )
+    } catch (error) {
+        
+    }
 
     const [localStorage, setLocalStorage] = useState( parseLocalStorage )
 

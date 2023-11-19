@@ -13,7 +13,7 @@ export const About = () => {
                     </div>
 
                     <div className="tracking-wide text-4xl text-white font-bold">
-                        Hola, soy <span className='text-[--color-2]'>Juan Marcos Mansilla.</span> Desarrollador Fullstack
+                        Hola, soy <span className='text-[--color-2]'>Juan Marcos Mansilla.</span>
                     </div>
 
                     <p className="mt-2 pl-3 pr-3 border-l-2 border-gray-500 text-white"><br />
