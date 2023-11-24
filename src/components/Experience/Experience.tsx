@@ -1,37 +1,75 @@
 import React from 'react'
 import { Button } from '../Button/Button'
+import { IconLink } from '../IconLink/IconLink'
+import { csharp, unity } from '../../tools'
+
+class Tag {
+    name: string
+    color: string
+    bg: string
+    text: string
+    constructor({ name, color }) {
+        this.name = name
+        this.color = color
+        this.bg = `bg-${color}-300`
+        this.text = `text-${color}-900`
+    }
+
+}
 
 export const Experience = () => {
+
+    const tags = [
+        {
+            name: 'VideoJuegos',
+            bg: `bg-green-300`,
+            text: 'text-green-900',
+        }
+    ]
+    const stack = [csharp, unity]
+    const description = 'Family Bunny - A simple carrot hunting game'
+
     return (<div className='w-full p-3 flex flex-col items-center'>
 
         <h1 className="w-full tracking-wide text-4xl text-white text-center font-bold">
             Proyectos
         </h1>
         <br />
-        {/* <iframe width="507" height="167" className='flex flex-col bg-black' src="https://itch.io/embed/1678118" /> */}
         <div className='max-w-[507px] grid-flow-col md:flex max-md:max-w-[300px] itchio bg-white'>
-            <div id="shroud" className='min-w-[207px] p-3 md:border-r max-md:border-b border-gray-300 grid content-start '>
+
+            <div id="shroud" className='min-w-[207px] p-3 pb-0 md:border-r max-md:border-b border-gray-300 grid content-start '>
                 <img src="https://img.itch.zone/aW1nLzEyMjg1MjEzLnBuZw==/180x143%23c/4ZzYYD.png" />
-                <h2 className='max-w-max m-1 px-2 font-mono rounded-xl bg-green-300 text-green-900 pad' style={{fontSize:'0.75rem'}} >
-                    <strong>VideoJuegos</strong>
-                </h2>
+                {tags.map((tag, i) => {
+                    return <h2 key={tag.name + i} className={`max-w-max m-1 px-2 font-mono rounded-xl ${tag.bg} ${tag.text}`} style={{ fontSize: '0.75rem' }} >
+                        <strong>{tag.name}</strong>
+                    </h2>
+                })}
             </div>
+
             <div id='game_summary' className="w-full pl-4 pr-2 py-2 flex flex-col justify-center">
-                <h1 className="tittle font-bold text-2xl"><a href="https://marcosmansilla.itch.io/family-bunny" target="_blank">Family Bunny
-                </a>
-                    <span className="platforms_inline">
-                        <span aria-hidden="true" className="icon icon-android" title="Available for Android">
-                        </span>
-                    </span>
-                </h1>
-                {/* <h2 className="author_row">
-                    <span className='fontsize'>by</span>
-                    <a className='font-bold' href="https://marcosmansilla.itch.io" target="_blank">MarcosMansilla
+                <h1 className="tittle font-bold text-2xl">
+                    <a className='hover:text-pink-500' href="https://marcosmansilla.itch.io/family-bunny" target="_blank">
+                        Family Bunny
                     </a>
-                </h2> */}
-                <h3 title="Family Bunny - A simple carrot hunting game" className='description'>
-                    Family Bunny - A simple carrot hunting game
+                </h1>
+
+                <div className='flex'>
+                    {stack.map((took, i) => {
+                        return <IconLink
+                            key={took.name + i}
+                            item={took}
+                            className={{
+                                a: 'h-[22px] min-w-[22px] flex justify-center items-center',
+                                img: 'h-[18px] transition-all hover:h-[20px]',
+                            }}
+                        />
+                    })}
+                </div>
+
+                <h3 title={description} className='description'>
+                    {description}
                 </h3>
+
                 <div >
                     <a target="_blank" className="button" href="https://marcosmansilla.itch.io/family-bunny">
                         <Button

@@ -1,5 +1,6 @@
 import React from 'react'
 import { backend, frontend, tools } from './stack'
+import { IconLink } from '../IconLink/IconLink'
 
 export const StackTools = () => {
 
@@ -30,9 +31,11 @@ export const StackTools = () => {
                         </div>
                         <div className={blockTech}>
                             {frontend.map((tool, i) => {
-                                return <a key={tool.name+i} className={linkCard + (tool.invert && changeWhite)} href={tool.url} target="_blank" rel="noreferrer">
-                                    <img src={tool.src} alt={tool.name} className={imgCard} />
-                                </a>
+                                return <IconLink
+                                    key={tool.name + i}
+                                    item={tool}
+                                    className={linkCard}
+                                />
                             })}
                         </div>
                     </div>
@@ -52,9 +55,11 @@ export const StackTools = () => {
                         </div>
                         <div className={blockTech}>
                             {backend.map((tool, i) => {
-                                return <a key={tool.name+i} className={linkCard + (tool.invert && changeWhite)} href={tool.url} target="_blank" rel="noreferrer">
-                                    <img src={tool.src} alt={tool.name} className={imgCard} />
-                                </a>
+                                return <IconLink
+                                    key={tool.name + i}
+                                    item={tool}
+                                    className={linkCard}
+                                />
                             })}
                         </div>
                     </div>
@@ -74,9 +79,11 @@ export const StackTools = () => {
                         </div>
                         <div className={blockTech}>
                             {tools.map((tool, i) => {
-                                return <a key={tool.name+i} className={linkCard + (tool.invert && changeWhite)} href={tool.url} target="_blank" rel="noreferrer">
-                                    <img src={tool.src} alt={tool.name} className={imgCard} />
-                                </a>
+                                return <IconLink
+                                    key={tool.name + i}
+                                    item={tool}
+                                    className={linkCard}
+                                />
                             })}
                         </div>
                     </div>
