@@ -1,9 +1,10 @@
 import React from 'react'
 import Photo from '../../assets/Profile.png'
 import { StackTools } from '../../components/StackTools/StackTools'
+import { Experience } from '../../components/Experience/Experience'
 
 export const About = () => {
-    return (<div className="container md:pt-3 w-full mx-auto font-[--font-1] flex flex-wrap flex-col md:flex-row justify-center content-center items-center">
+    return (<div className="container md:pt-3 w-full mx-auto poppins flex flex-wrap flex-col md:flex-row justify-center content-center items-center">
         <div className='mx-5 md:mx-auto bg-[--color-1] rounded-xl shadow-md overflow-hidden md:max-w-3xl m-5' >
             <div className="w-full flex flex-col-reverse sm:flex-row justify-center">
                 <div className="max-w-xl min-h-[200px] p-2 flex flex-col justify-center content-center">
@@ -26,6 +27,8 @@ export const About = () => {
                 </div>
             </div>
         </div>
+
+        <Experience />
 
         <StackTools />
     </div>)

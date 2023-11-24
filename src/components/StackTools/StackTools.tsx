@@ -17,7 +17,7 @@ export const StackTools = () => {
 
         <div className='w-full h-auto justify-between flex flex-row flex-wrap gap-x-12'>
 
-            <section className="container md:pt-3 w-fit mx-auto font-[--font-1]">
+            <section className="container md:pt-3 w-fit mx-auto poppins">
                 <div className='mx-5 md:mx-auto bg-[--color-1] rounded-xl shadow-md overflow-hidden md:max-w-3xl m-5' >
                     <div className="w-full flex flex-wrap flex-col md:flex-row justify-center content-center items-center">
                         <div className="min-w-[200px] max-w-xs min-h-[200px] p-2 flex flex-col flex-wrap justify-start content-center">
@@ -39,7 +39,7 @@ export const StackTools = () => {
                 </div>
             </section>
 
-            <section className="container md:pt-3 w-fit mx-auto font-[--font-1]">
+            <section className="container md:pt-3 w-fit mx-auto poppins">
                 <div className='mx-5 md:mx-auto bg-[--color-1] rounded-xl shadow-md overflow-hidden md:max-w-3xl m-5' >
                     <div className="w-full flex flex-wrap flex-col md:flex-row justify-center content-center items-center">
                         <div className="min-w-[200px] max-w-xs min-h-[200px] p-2 flex flex-col flex-wrap justify-start content-center">
@@ -61,7 +61,7 @@ export const StackTools = () => {
                 </div>
             </section>
 
-            <section className="container md:pt-3 w-fit mx-auto font-[--font-1]">
+            <section className="container md:pt-3 w-fit mx-auto poppins">
                 <div className='mx-5 md:mx-auto bg-[--color-1] rounded-xl shadow-md overflow-hidden md:max-w-3xl m-5' >
                     <div className="w-full flex flex-wrap flex-col md:flex-row justify-center content-center items-center">
                         <div className="min-w-[200px] max-w-xs min-h-[200px] p-2 flex flex-col flex-wrap justify-start content-center">

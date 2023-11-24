@@ -4,18 +4,58 @@
 
 
 @layer base {
-    :root {
-        --color-0: #181b24;
-        --color-1: #1a1d2c;
-        --color-2: #27ae5f;
-        --color-3: #e10098;
-        --color-4: #61dafb;
-        --font-1: "Poppins", 
-        }
+  @font-face {
+    font-family: 'Lato';
+    src: url(./fonts/Lato/Lato-Regular.ttf);
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: url(./fonts/Poppins/Poppins-Medium.ttf);
+  }
+
+  :root {
+    --color-0: #181b24;
+    --color-1: #1a1d2c;
+    --color-2: #27ae5f;
+    --color-3: #e10098;
+    --color-4: #61dafb;
+  }
+
+  .itchio {
+    font-family: 'Lato', sans-serif;
+    color: #777;
+
+    .tittle {
+      color: #444;
+    };
+
+    .author_row {
+      margin: 2px;
+      font-size: 0.75rem;
+    };
+    
+    .description {
+      margin: 2px;
+      font-size: 0.75em;
+    };
+
+    .playButton {
+      margin: 4px;
+      font-size: 0.75rem;
+    };
+  }
+
+  .poppins{
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .lato {
+    font-family: 'Lato', sans-serif;
+  }
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
