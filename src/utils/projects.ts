@@ -1,16 +1,7 @@
 import { Ecommerce, Tag, VideGame } from "./Tag"
 import { Tool, apollo, csharp, graphql, postgresql, react, sequelize, tailwind, unity } from "./tools"
 
-const useTag = (name: string, color: string) : Tag => {
-    return {
-        name,
-        bg: ` bg-${color}-300`,
-        text: ` text-${color}-900`,
-    }
-}
-// console.log(useTag("sa","blue"));
-
-export interface Proyect {
+export interface Project {
     title: string
     img: string
     link: string | undefined
@@ -22,7 +13,7 @@ export interface Proyect {
 }
 
 
-const FamilyBunny: Proyect = {
+const FamilyBunny: Project = {
     title: 'Family Bunny',
     img: 'https://img.itch.zone/aW1nLzEyMjg1MjEzLnBuZw==/180x143%23c/4ZzYYD.png',
     link: 'https://marcosmansilla.itch.io/family-bunny',
@@ -32,11 +23,11 @@ const FamilyBunny: Proyect = {
     buttonLink: 'Jugar en itch.io',
     logo: true,
 }
-const MercadoDeResiduos: Proyect = {
+const MercadoDeResiduos: Project = {
     title: 'Mercado de Residuos',
-    img: 'hola',
-    link: 'undefined',
-    description: ``,
+    img: 'https://media.discordapp.net/attachments/1126624954201411637/1160926418759331964/fondoMeetMDR.png?ex=656dcefb&is=655b59fb&hm=2892af054a11af6e7214de4d9d59de647ccd77a01a6e1719902605035b3a27a7&=&format=webp&width=840&height=473',
+    link: 'https://youtu.be/ZBi1--mW4GA?si=uDz2uGtCFXr0Iwo0',
+    description: `El proyecto de tienda B2B para MdR fue realizado como pasantía y proyecto final en Henry, una academia de programación online.`,
     tags: [Ecommerce],
     stacks: [react, tailwind, apollo, graphql, sequelize, postgresql],
     buttonLink: 'Ver video',
@@ -45,4 +36,4 @@ const MercadoDeResiduos: Proyect = {
 /**
  * 
  */
-export default [FamilyBunny]
+export default [FamilyBunny, MercadoDeResiduos]

@@ -1,6 +1,6 @@
 import React from "react";
-import { IconLink } from "../IconLink/IconLink";
-import { Button } from "../Button/Button";
+import { IconLink } from "../../IconLink/IconLink";
+import { Button } from "../../Button/Button";
 
 export const ProyectCard = ({ proyect }) => {
   const { img, stacks, tags, description, title, link, buttonLink, logo } =
@@ -14,7 +14,7 @@ export const ProyectCard = ({ proyect }) => {
           className="min-w-[207px] p-3 pb-0 md:border-r max-md:border-b border-gray-300 grid content-start overflow-hidden"
         >
           <div className="max-h-[140px] overflow-hidden flex items-center">
-            <img className="w-full rounded-t" src={img} alt={title} />
+            <img className="w-[180px] max-md:w-full rounded-t" src={img} alt={title} />
           </div>
           <div>
             {tags.map((tag, i) => {
@@ -34,7 +34,7 @@ export const ProyectCard = ({ proyect }) => {
         {/** RIGHT */}
         <div
           id="game_summary"
-          className="w-full pl-4 pr-2 py-2 flex flex-col justify-between"
+          className="w-64 pl-4 pr-2 py-2 flex flex-col justify-between"
         >
           {/** UP */}
           <div>

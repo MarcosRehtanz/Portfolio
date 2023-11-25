@@ -1,6 +1,6 @@
 import React from 'react'
-import proyects from '../../utils/proyects'
-import { ProyectCard } from '../ProyectCard/ProyectCard'
+import projects from '../../utils/projects'
+import { ProyectCard } from './ProjectCard/ProjectCard'
 
 
 export const Experience = () => {
@@ -10,7 +10,7 @@ export const Experience = () => {
             Proyectos
         </h1>
         <br />
-        {proyects.map((p, i) => {
+        {projects.map((p, i) => {
             return (
                 <ProyectCard
                     key={p.title.replace(' ','') + i}
