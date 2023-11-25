@@ -1,5 +1,5 @@
 import React from 'react'
-import { backend, frontend, tools } from './stack'
+import { backend, frontend, tools } from '../../utils/stack'
 import { IconLink } from '../IconLink/IconLink'
 
 export const StackTools = () => {
@@ -7,8 +7,6 @@ export const StackTools = () => {
     const sectionTools = 'w-[320px] min-h-[300px] rounded-t  rounded-b-2xl bg-[--color-4] flex flex-row justify-center content-start flex-wrap gap-4 m-4'
     const tittleCard = 'w-full bg-[--color-2] rounded-t text-center text-5xl font-normal font-mono'
     const linkCard = 'h-[60px] min-w-[60px] flex justify-center items-center'
-    const imgCard = 'h-12 transition-all hover:h-14'
-    const changeWhite = ' invert'
     const blockTech = 'w-64 flex-shrink-0 flex flex-row flex-wrap justify-center content-center'
     const libraries = 'text-[--color-2]'
 
