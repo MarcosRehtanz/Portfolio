@@ -9,7 +9,7 @@ export const react: Tool = {
     name: "react",
     invert: false,
     url: "https://reactjs.org/",
-    src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg",
+    src: "https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg",
 }
 export const redux: Tool = {
     name: "redux",
