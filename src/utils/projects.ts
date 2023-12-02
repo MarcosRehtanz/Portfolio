@@ -1,5 +1,5 @@
 import { Cards, Dashboard, Ecommerce, Filter, JWT, MercadoPago, MicroServices, RestAPI, Tag, ThreeD, VideGame } from "./Tag"
-import { Tool, apollo, csharp, express, graphql, postgresql, react, redux, sequelize, tailwind, unity } from "./tools";
+import { Tool, apollo, csharp, express, graphql, postgresql, react, redux, sequelize, tailwind, unity } from "./stack";
 import { itchio } from "./Logos";
 import React from "react";
 

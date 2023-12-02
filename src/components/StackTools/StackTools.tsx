@@ -1,5 +1,5 @@
 import React from 'react'
-import { backend, frontend, tools } from '../../utils/stack'
+import { backend, frontend, tools } from '../../utils/stacks'
 import { IconLink } from '../IconLink/IconLink'
 
 export const StackTools = () => {
