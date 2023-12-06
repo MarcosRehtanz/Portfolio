@@ -6,7 +6,7 @@ export const ProyectCard = ({ proyect }) => {
   const { img, stacks, tags, description, title, link, buttonLink, logo } =
     proyect;
   return (
-    <div className="w-full p-3 flex flex-col items-center">
+    <div className="w-min p-3 flex flex-col items-center">
       <div className="max-w-[507px] rounded-md grid-flow-col md:flex max-md:w-[300px] itchio bg-white">
         {/** LEFT */}
         <div

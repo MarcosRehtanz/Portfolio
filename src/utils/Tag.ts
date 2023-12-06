@@ -53,6 +53,17 @@ export const Filter: Tag = {
     bg: `bg-green-300`,
     text: 'text-green-900',
 }
+
+export const Chat: Tag = {
+    name: 'Chat',
+    bg: `bg-rose-300`,
+    text: 'text-rose-900',
+}
+export const SocketIo: Tag = {
+    name: 'Socket.io',
+    bg: `bg-teal-300`,
+    text: 'text-teal-900',
+}
 export const RestAPI: Tag = {
     name: 'RestAPI',
     bg: `bg-lime-300`,

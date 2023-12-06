@@ -11,6 +11,12 @@ export const react: Tool = {
     url: "https://reactjs.org/",
     src: "https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg",
 }
+export const angular: Tool = {
+    name: "angular",
+    invert: false,
+    url: "https://angular.dev/",
+    src: "https://www.vectorlogo.zone/logos/angular/angular-icon.svg",
+}
 export const redux: Tool = {
     name: "redux",
     invert: false,
