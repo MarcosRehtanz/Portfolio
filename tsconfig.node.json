@@ -9,8 +9,14 @@
     "allowImportingTsExtensions": true,
     "baseUrl": "./src",
     "paths": {
-      "*": ["*"]
-    }
+      "*": [ "*" ]
+    },
+    "target": "ESNext",
+    "lib": [ "DOM", "ESNext" ],
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["vite.config.ts"]
+  "include": [ "vite.config.ts" ]
 }
