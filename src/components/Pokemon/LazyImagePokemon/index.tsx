@@ -7,10 +7,10 @@ type Props = {
   alt: string;
 };
 
-const LazyImage = ({ loading, error, src, alt }: Props) => {
+const LazyImagePokemon = ({ loading, error, src, alt }: Props) => {
   if (loading) return <img src="error" alt="loading" loading="lazy" />;
   if (error) return <h1>{error.message}</h1>;
   return <img className="w-24" src={src} alt={alt} loading="lazy" />;
 };
 
-export default LazyImage;
+export default LazyImagePokemon;

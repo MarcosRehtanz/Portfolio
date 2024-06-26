@@ -4,7 +4,7 @@ import { Button } from "../Button/Button";
 import { LevelContext, ToggleContext } from "../react-game/context";
 import { CachePokemonContext } from "../../pages/Games/Games";
 import RadarPokemon from "./Radar";
-import LazyImage from "./LazyImage";
+import LazyImagePokemon from "./LazyImagePokemon";
 
 export const Pokemon = () => {
   const {
@@ -63,7 +63,7 @@ export const Pokemon = () => {
             )}
           </div>
           <div className="w-24 h-24 flex items-center justify-center">
-            <LazyImage
+            <LazyImagePokemon
               loading={loading}
               error={error}
               src={pokemon?.sprites.front_default}
