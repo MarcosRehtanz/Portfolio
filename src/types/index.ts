@@ -1,3 +1,11 @@
+export type StateKeys =
+  | "hp"
+  | "speed"
+  | "attack"
+  | "defense"
+  | "special_attack"
+  | "special_defense";
+
 export interface Tool {
   name: string;
   url: string;

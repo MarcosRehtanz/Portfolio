@@ -31,19 +31,23 @@ export const usePokemon = (initialId: number = 1): Pokemon => {
         .then(({ data }) => {
           const pokemon = {
             ...data,
-            stats: data?.stats.map((stat) => ({
-              name: stat?.stat.name.replace("-", "_"),
-              base_stat: stat?.base_stat,
-            })),
+            stats: data?.stats.map(
+              (stat: { stat: { name: string }; base_stat: string }) => ({
+                name: stat?.stat.name.replace("-", "_"),
+                base_stat: stat?.base_stat,
+              })
+            ),
           };
           addInCache(id, pokemon);
           setPokemon(pokemon);
           setError(null);
-          setLoading(false);
         })
         .catch((err) => {
-          setLoading(false);
+          setPokemon(undefined);
           setError(err);
+        })
+        .finally(() => {
+          setLoading(false);
         });
     }
   }, [id]);

@@ -10,17 +10,31 @@ import {
 } from "recharts";
 import { IconResolver } from "./IconResolver";
 
+type StateType = {
+  name: string;
+  base_stat: number;
+};
+export type PokemonType = {
+  [key: string]: any;
+  stats?: StateType[];
+};
+const initialStats: StateType[] = [
+  { name: "hp", base_stat: 0 },
+  { name: "attack", base_stat: 0 },
+  { name: "defense", base_stat: 0 },
+  { name: "special_attack", base_stat: 0 },
+  { name: "special_defense", base_stat: 0 },
+  { name: "speed", base_stat: 0 },
+];
+
 type Props = {
-  data: {
-    name: string;
-    base_stat: number;
-  }[];
+  data?: StateType[];
 };
 
 const RadarPokemon = ({ data }: Props) => {
   return (
     <ResponsiveContainer width={200} height={200}>
-      <RadarChart outerRadius={50} data={data}>
+      <RadarChart outerRadius={50} data={data ?? initialStats}>
         <PolarGrid />
         <PolarAngleAxis
           dataKey="name"
@@ -28,7 +42,7 @@ const RadarPokemon = ({ data }: Props) => {
             <IconResolver {...{ x, y, value: payload.value }} />
           )}
         />
-        <PolarRadiusAxis axisLine={false} tick={false} domain={[0, 160]} />
+        <PolarRadiusAxis axisLine={false} tick={false} domain={[0, 180]} />
         <Radar
           name="name"
           dataKey="base_stat"

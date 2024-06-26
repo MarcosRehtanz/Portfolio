@@ -8,20 +8,13 @@ import {
   FaStarOfLife,
 } from "react-icons/fa";
 import { IconType } from "react-icons";
+import { StateKeys } from "../../../../types";
 
 type Props = {
   value: string;
   x: number;
   y: number;
 };
-
-type StateKeys =
-  | "hp"
-  | "speed"
-  | "attack"
-  | "defense"
-  | "special_attack"
-  | "special_defense";
 
 const Icons: Record<StateKeys, IconType> = {
   hp: FaHeart,

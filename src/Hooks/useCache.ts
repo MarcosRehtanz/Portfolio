@@ -1,17 +1,16 @@
-import React from 'react'
+import React from "react";
 
 const useCache = () => {
+  const [cache, setCache] = React.useState({});
 
-    const [cache, setCache] = React.useState({})
+  const addInCache = (key: number | string, element: any) => {
+    setCache((old) => ({
+      ...old,
+      [key]: element,
+    }));
+  };
 
-    const addInCache = (key: number | string, element: any ) => {
-        setCache(old => ({
-            ...old,
-            [key]: element
-        }))
-    }
+  return { cache, addInCache };
+};
 
-    return {cache, addInCache}
-}
-
-export default useCache
+export default useCache;
