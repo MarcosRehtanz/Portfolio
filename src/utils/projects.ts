@@ -2,6 +2,9 @@ import * as Tag from "./Tag";
 import * as Stack from "./stack";
 import { itchio } from "./Logos";
 import { Project } from "../types";
+import photoMarket from "../assets/fMdR.png";
+import photoChatInLive from "../assets/chat-angular-socket.io.jpg";
+import photoDrivers from "../assets/drivers_post.jpg";
 
 const FamilyBunny: Project = {
   title: "Family Bunny",
@@ -15,7 +18,7 @@ const FamilyBunny: Project = {
 };
 const MercadoDeResiduos: Project = {
   title: "Mercado de Residuos",
-  img: "../src/assets/fMdR.png",
+  img: photoMarket,
   link: "https://youtu.be/ZBi1--mW4GA?si=uDz2uGtCFXr0Iwo0",
   description: `El proyecto de tienda B2B para MdR fue realizado como pasantía y proyecto final en Henry, una academia de programación online.`,
   tags: [
@@ -39,7 +42,7 @@ const MercadoDeResiduos: Project = {
 };
 const ChatInLive: Project = {
   title: "Chat en vivo",
-  img: "../src/assets/chat-angular-socket.io.jpg",
+  img: photoChatInLive,
   link: "https://chat-angular-client.vercel.app/",
   description:
     "Desarrollé un sistema de chat en tiempo real con Socket.IO para la comunicación instantánea, brindando una experiencia fluida e interactiva de mensajería.",
@@ -50,7 +53,7 @@ const ChatInLive: Project = {
 };
 const Drivers: Project = {
   title: "Formula 1",
-  img: "../src/assets/drivers_post.jpg",
+  img: photoDrivers,
   link: "https://drivers-eight.vercel.app/",
   description:
     "Proyecto Individual en donde puse a prueba mis conocimiento con las tecnologías, tanto en back como en front, dictadas en Henry.",
