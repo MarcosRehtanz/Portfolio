@@ -2,13 +2,14 @@ import * as Tag from "./Tag";
 import * as Stack from "./stack";
 import { itchio } from "./Logos";
 import { Project } from "../types";
-import photoMarket from "../assets/fMdR.png";
-import photoChatInLive from "../assets/chat-angular-socket.io.jpg";
-import photoDrivers from "../assets/drivers_post.jpg";
+import imageKUI from "../assets/projects/kheiron-ui.png";
+import photoMarket from "../assets/projects/fMdR.png";
+import photoChatInLive from "../assets/projects/chat-angular-socket.io.jpg";
+import photoDrivers from "../assets/projects/drivers_post.jpg";
 
 const KheironUI: Project = {
   title: "kheiron-ui",
-  img: "",
+  img: imageKUI,
   description: "Librería ",
   link: "https://www.npmjs.com/package/kheiron-ui",
   tags: [Tag.Library],
