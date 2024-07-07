@@ -6,6 +6,22 @@ import photoMarket from "../assets/fMdR.png";
 import photoChatInLive from "../assets/chat-angular-socket.io.jpg";
 import photoDrivers from "../assets/drivers_post.jpg";
 
+const KheironUI: Project = {
+  title: "kheiron-ui",
+  img: "",
+  description: "Librería ",
+  link: "https://www.npmjs.com/package/kheiron-ui",
+  tags: [Tag.Library],
+  stacks: [
+    Stack.storybook,
+    Stack.typescript,
+    Stack.react,
+    Stack.styledComponent,
+  ],
+  buttonLink: "Ir a NPMjs",
+  logo: null,
+};
+
 const FamilyBunny: Project = {
   title: "Family Bunny",
   img: "https://img.itch.zone/aW1nLzEyMjg1MjEzLnBuZw==/180x143%23c/4ZzYYD.png",
@@ -71,4 +87,4 @@ const Drivers: Project = {
 /**
  *
  */
-export default [FamilyBunny, MercadoDeResiduos, ChatInLive, Drivers];
+export default [KheironUI, FamilyBunny, MercadoDeResiduos, ChatInLive, Drivers];

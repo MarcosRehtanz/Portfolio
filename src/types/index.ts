@@ -1,3 +1,5 @@
+import { IconNames } from "../assets/icons";
+
 export type StateKeys =
   | "hp"
   | "speed"
@@ -9,8 +11,9 @@ export type StateKeys =
 export interface Tool {
   name: string;
   url: string;
-  src: string;
+  src?: string;
   invert: boolean;
+  icon?: IconNames;
 }
 
 export interface Tag {

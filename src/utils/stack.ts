@@ -1,5 +1,19 @@
+import { IconNames } from "../assets/icons";
 import { Tool } from "../types";
 
+export const storybook: Tool = {
+  name: "storybook",
+  invert: false,
+  url: "https://storybook.js.org/",
+  icon: IconNames.storybook,
+};
+export const styledComponent: Tool = {
+  name: "styled_component",
+  invert: false,
+  url: "https://styled-components.com/",
+  src: "",
+  icon: IconNames.styledComponents,
+};
 export const react: Tool = {
   name: "react",
   invert: false,

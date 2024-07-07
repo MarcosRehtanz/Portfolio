@@ -1,5 +1,11 @@
 import { Tag } from "../types";
 
+export const Library: Tag = {
+  name: "Library",
+  bg: "bg-orange-300",
+  text: "text-orange-900",
+};
+
 export const VideGame: Tag = {
   name: "VideoGame",
   bg: `bg-green-300`,
