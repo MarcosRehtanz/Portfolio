@@ -13,7 +13,7 @@ interface InputIconLink {
 }
 
 export const IconLink = ({ item, className }: InputIconLink) => {
-  const imgCard = "h-12 transition-all hover:h-14";
+  const imgCard = "h-12 m-2 transition-all hover:h-14 hover:m-1";
 
   const classStyle = typeof className === "string" ? {} : className;
 
@@ -23,6 +23,7 @@ export const IconLink = ({ item, className }: InputIconLink) => {
       href={item.url}
       target="_blank"
       rel="noreferrer"
+      title={item.name}
     >
       {item?.icon ? (
         <IconComponent

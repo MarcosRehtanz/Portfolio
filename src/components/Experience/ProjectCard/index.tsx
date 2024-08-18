@@ -15,7 +15,7 @@ export const ProjectCard = ({
 }: Project) => {
   return (
     <div className="w-min p-3 flex flex-col items-center">
-      <div className="max-w-[507px] rounded-md grid-flow-col md:flex max-md:w-[300px] itchio bg-white">
+      <div className="max-w-[507px] h-full rounded-md grid-flow-col md:flex max-md:w-[300px] itchio bg-white">
         {/** LEFT */}
         <div
           id="shroud"
