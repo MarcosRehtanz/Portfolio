@@ -8,6 +8,7 @@
     font-family: 'Lato';
     src: url(./fonts/Lato/Lato-Regular.ttf);
   }
+
   @font-face {
     font-family: 'Poppins';
     src: url(./fonts/Poppins/Poppins-Medium.ttf);
@@ -25,27 +26,35 @@
     font-family: 'Lato', sans-serif;
     color: #777;
 
-    .tittle {
+    .title {
       color: #444;
-    };
+    }
+
+    ;
 
     .author_row {
       margin: 2px;
       font-size: 0.75rem;
-    };
-    
+    }
+
+    ;
+
     .description {
       margin: 2px;
       font-size: 0.75em;
-    };
+    }
+
+    ;
 
     .playButton {
       margin: 4px;
       font-size: 0.75rem;
-    };
+    }
+
+    ;
   }
 
-  .poppins{
+  .poppins {
     font-family: 'Poppins', sans-serif;
   }
 
