@@ -22,6 +22,8 @@ function App() {
                   {/* <!--Nav--> */}
                   <Nav />
                   <Outlet />
+                  <ToastContainer />
+                  <Navigator />
                 </>
               }
             >
@@ -34,9 +36,6 @@ function App() {
             </Route>
           </Routes>
         </main>
-
-        <ToastContainer />
-        <Navigator />
       </div>
     </>
   );

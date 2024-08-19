@@ -1,7 +1,9 @@
 import React from "react";
 import Photo from "../../assets/Profile.png";
 import { StackTools } from "../../components/StackTools/StackTools";
+import { mainStack } from "../../utils/stacks";
 import { Experience } from "../../components/Experience";
+import { IconLink } from "../../components/IconLink/IconLink";
 
 export const About = () => {
   return (
@@ -19,15 +21,27 @@ export const About = () => {
 
             <div className="tracking-wide text-4xl text-white font-bold">
               Hola, soy{" "}
-              <span className="text-[--color-2]">Juan Marcos Mansilla.</span>
+              <h1 className="text-[--color-2]">Juan Marcos Mansilla.</h1>
             </div>
 
-            <p className="mt-2 pl-3 pr-3 border-l-2 border-gray-500 text-white">
-              <br />
-              Soy desarrollador fullstack con dominio en JavaScript, React y
-              Sequelize. Conocimiento en POO; me inicié en la programación con
-              Java para app de escritorio y C# para desarrollo de videojuegos.
+            <p className="mt-2 px-3 pt-3 border-l-2 border-gray-500 text-white">
+              Soy desarrollador fullstack con +2 años de experiencia en varias
+              areas de la industria IT como UX/UI, web, mobile y servidores.
             </p>
+            <div className=" m-2 flex">
+              {mainStack.map((tool, i) => {
+                return (
+                  <IconLink
+                    key={tool.name + i}
+                    item={tool}
+                    className={{
+                      a: "h-[22px] min-w-[22px] flex justify-center items-center",
+                      img: "h-[18px] transition-all hover:h-[20px]",
+                    }}
+                  />
+                );
+              })}
+            </div>
           </div>
           <div className="flex-shrink-0 hidden sm:block">
             <img

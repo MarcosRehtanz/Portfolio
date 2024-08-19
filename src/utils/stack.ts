@@ -98,12 +98,29 @@ export const sequelize: Tool = {
   url: "https://www.sequelize.org",
   src: "https://www.vectorlogo.zone/logos/sequelizejs/sequelizejs-icon.svg",
 };
+
+/**
+ * Base de datos
+ */
 export const postgresql: Tool = {
   name: "postgresql",
   invert: false,
   url: "https://www.postgresql.org",
   src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg",
 };
+export const mongodb: Tool = {
+  name: "mongodb",
+  invert: false,
+  url: "https://www.mongodb.com",
+  src: "https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg",
+};
+export const firebase: Tool = {
+  name: "firebase",
+  invert: false,
+  url: "https://www.firebase.com",
+  src: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg",
+};
+
 export const jest: Tool = {
   name: "jest",
   invert: false,
@@ -144,5 +161,12 @@ export const photoshop: Tool = {
   name: "photoshop",
   url: "https://www.photoshop.com/en",
   src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg",
+  invert: false,
+};
+
+export const figma: Tool = {
+  name: "figma",
+  url: "https://www.figma.com",
+  src: "https://www.vectorlogo.zone/logos/figma/figma-icon.svg",
   invert: false,
 };
