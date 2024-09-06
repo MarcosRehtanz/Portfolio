@@ -4,10 +4,20 @@ import { StackTools } from "../../components/StackTools/StackTools";
 import { mainStack } from "../../utils/stacks";
 import { Experience } from "../../components/Experience";
 import { IconLink } from "../../components/IconLink/IconLink";
+import { SEO } from "../../components/SEO";
 
 export const About = () => {
+  const description =`Soy desarrollador fullstack con +2 años de experiencia en varias areas de la industria IT como UX/UI, web, mobile y servidores.`
   return (
     <div className="container md:pt-3 w-full mx-auto poppins flex flex-wrap flex-col md:flex-row justify-center content-center items-center">
+      <SEO
+        title="Juan Marcos Mansilla"
+        description={description}
+        name="Juan Marcos Mansilla"
+        type="Sobre Mi"
+        image={Photo}
+        url={window.location.href}
+      />
       <div className="mx-5 md:mx-auto bg-[--color-1] rounded-xl shadow-md overflow-hidden md:max-w-3xl m-5">
         <div className="w-full flex flex-col-reverse sm:flex-row justify-center">
           <div className="max-w-xl min-h-[200px] p-2 flex flex-col justify-center content-center">
@@ -25,8 +35,7 @@ export const About = () => {
             </div>
 
             <p className="mt-2 px-3 pt-3 border-l-2 border-gray-500 text-white">
-              Soy desarrollador fullstack con +2 años de experiencia en varias
-              areas de la industria IT como UX/UI, web, mobile y servidores.
+              {description}
             </p>
             <div className=" m-2 flex">
               {mainStack.map((tool, i) => {

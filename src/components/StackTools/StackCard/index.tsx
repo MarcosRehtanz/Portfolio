@@ -19,9 +19,9 @@ export const StackCard = ({ title, description, toolList }: StackCardProps) => (
     <div className="mx-5 md:mx-auto bg-[--color-1] rounded-xl shadow-md overflow-hidden md:max-w-3xl m-5">
       <div className="w-full flex flex-wrap flex-col md:flex-row justify-center content-center items-center">
         <div className="min-w-[200px] max-w-xs min-h-[200px] p-2 flex flex-col flex-wrap justify-start content-center">
-          <h1 className="w-full text-left tracking-wide text-3xl text-white font-bold">
+          <h2 className="w-full text-left tracking-wide text-3xl text-white font-bold">
             {title}
-          </h1>
+          </h2>
           <div className="mt-2 px-3 pt-4 border-l-2 border-gray-500">
             {description}
           </div>
