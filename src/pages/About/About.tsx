@@ -14,7 +14,7 @@ export const About = () => {
         title="Juan Marcos Mansilla"
         description={description}
         name="Juan Marcos Mansilla"
-        type="Sobre Mi"
+        type="website"
         image={Photo}
         url={window.location.href}
       />
