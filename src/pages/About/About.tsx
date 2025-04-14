@@ -1,5 +1,3 @@
-import React from "react";
-import Photo from "../../assets/Profile.png";
 import { StackTools } from "../../components/StackTools/StackTools";
 import { mainStack } from "../../utils/stacks";
 import { Experience } from "../../components/Experience";
@@ -15,7 +13,7 @@ export const About = () => {
         description={description}
         name="Juan Marcos Mansilla"
         type="website"
-        image={Photo}
+        image="profile.jpeg"
         url={window.location.href}
       />
       <div className="mx-5 md:mx-auto bg-[--color-1] rounded-xl shadow-md overflow-hidden md:max-w-3xl m-5">
@@ -24,7 +22,7 @@ export const About = () => {
             <div className="flex-shrink-0 mb-4 bg-[--color-4] w-full block sm:hidden rounded-xl">
               <img
                 className="w-[175px] h-52 sm:w-48 object-cover object-top mx-auto bg-[--color-4] rounded-xl sm:rounded-3xl transform transition hover:scale-110 duration-700 ease-in-out"
-                src={Photo}
+                src="profile.jpeg"
                 alt="Event image"
               />
             </div>
@@ -55,7 +53,7 @@ export const About = () => {
           <div className="flex-shrink-0 hidden sm:block">
             <img
               className="w-32 sm:w-48 object-cover mx-auto sm:bg-[--color-4] rounded-xl sm:rounded-3xl transform rotate-12 transition hover:scale-110 duration-700 ease-in-out hover:rotate-6"
-              src={Photo}
+              src="profile.jpeg"
               alt="Event image"
             />
           </div>

@@ -1,14 +1,14 @@
-import React from "react"
 import { useToggle } from "../../../Hooks/useToggle"
+import { Context, createContext, useState } from 'react'
 
-export const ToggleContext: React.Context<any> = React.createContext({})
-export const LevelContext: React.Context<any> = React.createContext({})
+export const ToggleContext: Context<any> = createContext({})
+export const LevelContext: Context<any> = createContext({})
 
 
 
 const GameProvider = ({ children }) => {
     const toggle = useToggle(false)
-    const [level, setLevel] = React.useState({ sizeBlock: 20, speed: 4 })
+    const [level, setLevel] = useState({ sizeBlock: 20, speed: 4 })
     const selectLevel = (l: number) => {
         switch (l) {
             case 1: return { sizeBlock: 48, speed: 6, time: 5 }
