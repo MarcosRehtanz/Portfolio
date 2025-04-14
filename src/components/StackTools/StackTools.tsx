@@ -1,4 +1,3 @@
-import React from "react";
 import { backend, frontend, tools } from "../../utils/stacks";
 import { StackCard } from "./StackCard";
 
@@ -8,7 +7,7 @@ const NameTool = ({ children }: { children: string }) => (
 
 export const StackTools = () => {
   return (
-    <div className="mx-auto md:pt-16">
+    <div className="mx-auto md:pt-16 max-w-[1500px]">
       <hr />
       {/* <h1 className='w-full my-10 py-10 tracking-wide bg-[--color-1] uppercase text-center text-5xl text-[--color-2] font-bold'>Languajes and herramientas</h1> */}
 

@@ -61,8 +61,6 @@ export const About = () => {
       </div>
 
       <Experience />
-
-      <StackTools />
     </div>
   );
 };
