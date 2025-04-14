@@ -24,7 +24,7 @@ import {
   sequelize,
   tailwind,
   typescript,
-  unity, python, ubuntu, nginx, mysql, sqlite,
+  unity, python, ubuntu, nginx, mysql, sqlite, angular,
 } from './stack'
 
 export const mainStack: Tool[] = [
@@ -35,13 +35,15 @@ export const mainStack: Tool[] = [
   nodejs,
   python,
   mongodb,
-  firebase,
+  sqlite,
+  nginx,
 ]
 
 export const frontend: Tool[] = [
   figma,
   react,
-  redux,
+  angular,
+  // redux,
   tailwind,
   // bootstrap,
   // apollo,

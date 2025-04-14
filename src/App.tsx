@@ -1,5 +1,4 @@
 import { Routes, Route, Outlet } from 'react-router'
-
 import { Nav } from './components/Nav/Nav'
 import { About } from './pages/About/About'
 import { Navigator } from './components/Navigator/Navigator'

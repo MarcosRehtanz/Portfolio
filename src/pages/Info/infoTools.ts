@@ -1,4 +1,4 @@
-import { Tool } from "../../typescript";
+import type { Tool } from "../../types";
 
 export const infoTools: Tool[] = [
     {

@@ -4,9 +4,10 @@ import { IconLink } from '../../components/IconLink/IconLink'
 import { SEO } from '../../components/SEO'
 
 export const About = () => {
-  const description = `Soy desarrollador fullstack con +3 años de experiencia en varias areas de la industria IT como UX/UI, web, mobile y servidores.
-  Manejo 
-  `
+  const description = <p>Soy desarrollador fullstack con +3 años de experiencia en varias areas de la industria IT como
+    UX/UI, web, mobile y servidores.<br /><br />
+    Cada proyecto en el que he estado contaba con una necesidad especial, lo que me insitó a adaptarme y a trabajar con
+    nuevos recursos para lograr los objetivos.</p>
   return (
     <div
       className="container md:pt-3 w-full mx-auto poppins flex flex-wrap flex-col md:flex-row justify-center content-center items-center">
@@ -37,7 +38,7 @@ export const About = () => {
             <p className="mt-2 px-3 pt-3 border-l-2 border-gray-500 text-white">
               {description}
             </p>
-            <div className=" m-2 flex">
+            <div className="pt-4 m-2 flex gap-2">
               {mainStack.map((tool, i) => {
                 return (
                   <IconLink
@@ -45,7 +46,7 @@ export const About = () => {
                     item={tool}
                     className={{
                       a: 'h-[22px] min-w-[22px] flex justify-center items-center',
-                      img: 'h-[18px] transition-all hover:h-[20px]',
+                      img: 'h-[24px] transition-all hover:h-[28px]',
                     }}
                   />
                 )
