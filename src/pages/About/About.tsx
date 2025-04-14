@@ -1,13 +1,15 @@
-import { StackTools } from "../../components/StackTools/StackTools";
-import { mainStack } from "../../utils/stacks";
-import { Experience } from "../../components/Experience";
-import { IconLink } from "../../components/IconLink/IconLink";
-import { SEO } from "../../components/SEO";
+import { mainStack } from '../../utils/stacks'
+import { Experience } from '../../components/Experience'
+import { IconLink } from '../../components/IconLink/IconLink'
+import { SEO } from '../../components/SEO'
 
 export const About = () => {
-  const description =`Soy desarrollador fullstack con +2 años de experiencia en varias areas de la industria IT como UX/UI, web, mobile y servidores.`
+  const description = `Soy desarrollador fullstack con +3 años de experiencia en varias areas de la industria IT como UX/UI, web, mobile y servidores.
+  Manejo 
+  `
   return (
-    <div className="container md:pt-3 w-full mx-auto poppins flex flex-wrap flex-col md:flex-row justify-center content-center items-center">
+    <div
+      className="container md:pt-3 w-full mx-auto poppins flex flex-wrap flex-col md:flex-row justify-center content-center items-center">
       <SEO
         title="Juan Marcos Mansilla"
         description={description}
@@ -28,7 +30,7 @@ export const About = () => {
             </div>
 
             <div className="tracking-wide text-4xl text-white font-bold">
-              Hola, soy{" "}
+              Hola, soy{' '}
               <h1 className="text-[--color-2]">Juan Marcos Mansilla.</h1>
             </div>
 
@@ -42,11 +44,11 @@ export const About = () => {
                     key={tool.name + i}
                     item={tool}
                     className={{
-                      a: "h-[22px] min-w-[22px] flex justify-center items-center",
-                      img: "h-[18px] transition-all hover:h-[20px]",
+                      a: 'h-[22px] min-w-[22px] flex justify-center items-center',
+                      img: 'h-[18px] transition-all hover:h-[20px]',
                     }}
                   />
-                );
+                )
               })}
             </div>
           </div>
@@ -62,5 +64,5 @@ export const About = () => {
 
       <Experience />
     </div>
-  );
-};
+  )
+}

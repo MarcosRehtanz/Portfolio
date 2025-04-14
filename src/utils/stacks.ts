@@ -1,4 +1,4 @@
-import { Tool } from "../types";
+import { Tool } from '../types'
 import {
   figma,
   apollo,
@@ -24,41 +24,54 @@ import {
   sequelize,
   tailwind,
   typescript,
-  unity,
-} from "./stack";
+  unity, python, ubuntu, nginx, mysql, sqlite,
+} from './stack'
 
 export const mainStack: Tool[] = [
   figma,
-  storybook,
-  //   html5,
-  //   javascript,
   typescript,
   react,
   graphql,
+  nodejs,
+  python,
   mongodb,
   firebase,
-];
+]
 
 export const frontend: Tool[] = [
   figma,
   react,
   redux,
   tailwind,
-  bootstrap,
-  apollo,
-  typescript,
+  // bootstrap,
+  // apollo,
   html5,
   css3,
+]
+export const lenguages = [
   javascript,
-];
+  typescript,
+  python,
+  csharp,
+]
 export const backend: Tool[] = [
-  nodejs,
   express,
   apollo,
   graphql,
   sequelize,
-  postgresql,
-  mongodb,
   jest,
-];
-export const tools: Tool[] = [bash, git, csharp, unity, illustrator, photoshop];
+]
+export const servers = [
+  nodejs,
+  ubuntu,
+  nginx,
+  bash,
+]
+export const databases: Tool[] = [
+  mongodb,
+  firebase,
+  postgresql,
+  mysql,
+  sqlite,
+]
+export const tools: Tool[] = [git, unity, illustrator, photoshop]

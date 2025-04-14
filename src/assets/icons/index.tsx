@@ -1,4 +1,4 @@
-import React, { SVGProps } from "react";
+import { SVGProps } from "react";
 import StyledComponents from "./StyledComponents";
 import Storybook from "./Storybook";
 
