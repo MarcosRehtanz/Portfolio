@@ -69,3 +69,45 @@ export const RestAPI: Tag = {
   bg: `bg-lime-300`,
   text: "text-lime-900",
 };
+
+export const SaaS: Tag = {
+  name: "SaaS",
+  bg: `bg-purple-300`,
+  text: "text-purple-900",
+};
+
+export const MultiTenant: Tag = {
+  name: "Multi-tenant",
+  bg: `bg-indigo-300`,
+  text: "text-indigo-900",
+};
+
+export const Mobile: Tag = {
+  name: "Mobile",
+  bg: `bg-pink-300`,
+  text: "text-pink-900",
+};
+
+export const AI: Tag = {
+  name: "AI",
+  bg: `bg-violet-300`,
+  text: "text-violet-900",
+};
+
+export const Education: Tag = {
+  name: "Education",
+  bg: `bg-amber-300`,
+  text: "text-amber-900",
+};
+
+export const B2B: Tag = {
+  name: "B2B",
+  bg: `bg-sky-300`,
+  text: "text-sky-900",
+};
+
+export const ERP: Tag = {
+  name: "ERP",
+  bg: `bg-slate-300`,
+  text: "text-slate-900",
+};

@@ -1,0 +1,26 @@
+{
+  "nav": {
+    "language": "ES"
+  },
+  "about": {
+    "greeting": "Hola, soy",
+    "name": "Juan Mansilla",
+    "title": "Software Engineer | Cloud & Backend",
+    "description": "Software Engineer con 5 años de experiencia especializado en arquitectura cloud, backend y DevOps. Experiencia en diseño de sistemas multi-tenant, implementación de seguridad (protección DDoS, rate limiting) y pipelines CI/CD. Dominio de Node.js, NestJS, Python, PostgreSQL y herramientas de infraestructura como Nginx, Docker, Cloudflare y GitHub Actions.",
+    "available": "Disponible para reubicación"
+  },
+  "sections": {
+    "projects": "Proyectos",
+    "experience": "Experiencia",
+    "skills": "Habilidades"
+  },
+  "experience": {
+    "present": "Actualidad",
+    "achievements": "Logros"
+  },
+  "projects": {
+    "viewProject": "Ver proyecto",
+    "viewVideo": "Ver video",
+    "playGame": "Jugar"
+  }
+}

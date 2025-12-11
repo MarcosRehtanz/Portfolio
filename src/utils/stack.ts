@@ -212,4 +212,58 @@ export const nginx: Tool = {
   invert: false,
 }
 
+export const nestjs: Tool = {
+  name: 'nestjs',
+  url: 'https://nestjs.com',
+  src: 'https://www.vectorlogo.zone/logos/nestjs/nestjs-icon.svg',
+  invert: false,
+}
 
+export const nextjs: Tool = {
+  name: 'nextjs',
+  url: 'https://nextjs.org',
+  src: 'https://www.vectorlogo.zone/logos/nextjs/nextjs-icon.svg',
+  invert: true,
+}
+
+export const prisma: Tool = {
+  name: 'prisma',
+  url: 'https://www.prisma.io',
+  src: 'https://www.vectorlogo.zone/logos/prismaio/prismaio-icon.svg',
+  invert: true,
+}
+
+export const redis: Tool = {
+  name: 'redis',
+  url: 'https://redis.io',
+  src: 'https://www.vectorlogo.zone/logos/redis/redis-icon.svg',
+  invert: false,
+}
+
+export const docker: Tool = {
+  name: 'docker',
+  url: 'https://www.docker.com',
+  src: 'https://www.vectorlogo.zone/logos/docker/docker-icon.svg',
+  invert: false,
+}
+
+export const cloudflare: Tool = {
+  name: 'cloudflare',
+  url: 'https://www.cloudflare.com',
+  src: 'https://www.vectorlogo.zone/logos/cloudflare/cloudflare-icon.svg',
+  invert: false,
+}
+
+export const reactNative: Tool = {
+  name: 'react native',
+  url: 'https://reactnative.dev',
+  src: 'https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg',
+  invert: false,
+}
+
+export const fastapi: Tool = {
+  name: 'fastapi',
+  url: 'https://fastapi.tiangolo.com',
+  src: 'https://cdn.worldvectorlogo.com/logos/fastapi-1.svg',
+  invert: false,
+}
