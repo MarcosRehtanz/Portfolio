@@ -2,6 +2,7 @@ import React from "react";
 import { IconLink } from "../../IconLink/IconLink";
 import { Button } from "../../Button/Button";
 import { Project } from "../../../types";
+import { useLanguage } from "../../../context/languageContext";
 
 export const ProjectCard = ({
   img,
@@ -13,6 +14,8 @@ export const ProjectCard = ({
   buttonLink,
   logo,
 }: Project) => {
+  const { language, t } = useLanguage();
+
   return (
     <div className="w-min p-3 flex flex-col items-center">
       <div className="max-w-[507px] h-full rounded-md grid-flow-col md:flex max-md:w-[300px] itchio bg-white">
@@ -83,7 +86,7 @@ export const ProjectCard = ({
 
             {/** DESCRIPTION */}
             <div>
-              {description.split("\n").map((des, i) => {
+              {description[language].split("\n").map((des, i) => {
                 return (
                   <h3 key={des + i} title={des} className="description">
                     {des}
@@ -96,14 +99,14 @@ export const ProjectCard = ({
           {/** DOWN */}
           <div>
             {/** BUTTON */}
-            {link && (
+            {link && buttonLink && (
               <div className="flex">
                 <a target="_blank" className="button" href={link}>
                   <Button
                     className="h-9 my-2 rounded bg-pink-400 border-pink-400 hover:bg-pink-300 flex items-center justify-center"
                     onClick={() => {}}
                   >
-                    <strong className="playButton">{buttonLink}</strong>
+                    <strong className="playButton">{t.projects[buttonLink]}</strong>
                   </Button>
                 </a>
               </div>

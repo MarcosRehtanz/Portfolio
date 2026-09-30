@@ -15,23 +15,21 @@ export const SEO = ({ title, description, name, type, image, url }:SEOProps) => 
         <Helmet>
             { /* Standard metadata tags */}
             <title>{title}</title>
-            <meta name='description' content="Soy desarrollador fullstack con +3 años de experiencia en varias areas de la industria IT como
-    UX/UI, web, mobile y servidores." />
+            <meta name='description' content={String(description)} />
             <meta property='og:image' content={image} />
             <meta property='og:url' content={url} />
             { /* End standard metadata tags */}
             { /* Facebook tags */}
             <meta property="og:type" content={type} />
             <meta property="og:title" content={title} />
-            <meta property="og:description" content="Soy desarrollador fullstack con +3 años de experiencia en varias areas de la industria IT como
-    UX/UI, web, mobile y servidores." />
+            <meta property="og:description" content={String(description)} />
             { /* End Facebook tags */}
             { /* Twitter tags */}
             <meta name="twitter:creator" content={name} />
-            <meta name="twitter:card" content={type} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:image" content={image} />
             <meta name="twitter:title" content={title} />
-            <meta name="twitter:description" content="Soy desarrollador fullstack con +3 años de experiencia en varias areas de la industria IT como
-    UX/UI, web, mobile y servidores." />
+            <meta name="twitter:description" content={String(description)} />
             { /* End Twitter tags */}
         </Helmet>
     )

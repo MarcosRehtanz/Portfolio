@@ -66,7 +66,7 @@ export const WorkExperience = () => {
                   {exp.stack.slice(0, 5).map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs bg-[--color-4] text-gray-300 px-2 py-0.5 rounded"
+                      className="text-xs bg-[--color-0] text-[--color-4] border border-cyan-900 px-2 py-0.5 rounded"
                     >
                       {tech}
                     </span>

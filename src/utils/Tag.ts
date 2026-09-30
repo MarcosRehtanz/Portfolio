@@ -111,3 +111,15 @@ export const ERP: Tag = {
   bg: `bg-slate-300`,
   text: "text-slate-900",
 };
+
+export const CRM: Tag = {
+  name: "CRM",
+  bg: `bg-fuchsia-300`,
+  text: "text-fuchsia-900",
+};
+
+export const Agents: Tag = {
+  name: "Agents",
+  bg: `bg-emerald-300`,
+  text: "text-emerald-900",
+};

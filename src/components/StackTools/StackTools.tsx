@@ -1,11 +1,14 @@
 import { backend, databases, frontend, lenguages, servers, tools } from '../../utils/stacks'
 import { StackCard } from './StackCard'
+import { useLanguage } from '../../context/languageContext'
 
 const NameTool = ({ children }: { children: string }) => (
   <b className="mx-auto text-green-400">{children}</b>
 )
 
 export const StackTools = () => {
+  const { t } = useLanguage()
+
   return (
     <div className="mx-auto md:pt-16 max-w-[1500px]">
       <hr />
@@ -13,24 +16,24 @@ export const StackTools = () => {
 
       <div className="w-full max-w-5xl h-auto justify-between flex flex-row flex-wrap">
         <StackCard
-          title="Lenguajes"
+          title={t.skills.languages}
           description={
             <p></p>
           }
           toolList={lenguages}
         />
-        <StackCard title="Bases de Datos" toolList={databases} />
+        <StackCard title={t.skills.databases} toolList={databases} />
         <StackCard
-          title="Frontend"
+          title={t.skills.frontend}
           toolList={frontend}
         />
-        <StackCard title="Servidores" toolList={servers} />
+        <StackCard title={t.skills.servers} toolList={servers} />
         <StackCard
-          title="Backend"
+          title={t.skills.backend}
           toolList={backend}
         />
         <StackCard
-          title="Tools"
+          title={t.skills.tools}
           toolList={tools}
         />
       </div>

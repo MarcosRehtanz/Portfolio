@@ -229,7 +229,7 @@ export const nextjs: Tool = {
 export const prisma: Tool = {
   name: 'prisma',
   url: 'https://www.prisma.io',
-  src: 'https://www.vectorlogo.zone/logos/prismaio/prismaio-icon.svg',
+  src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/prisma/prisma-original.svg',
   invert: true,
 }
 
@@ -265,5 +265,61 @@ export const fastapi: Tool = {
   name: 'fastapi',
   url: 'https://fastapi.tiangolo.com',
   src: 'https://cdn.worldvectorlogo.com/logos/fastapi-1.svg',
+  invert: false,
+}
+
+export const php: Tool = {
+  name: 'php',
+  url: 'https://www.php.net',
+  src: 'https://www.vectorlogo.zone/logos/php/php-icon.svg',
+  invert: false,
+}
+
+export const dotnet: Tool = {
+  name: '.net',
+  url: 'https://dotnet.microsoft.com',
+  src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg',
+  invert: false,
+}
+
+export const mariadb: Tool = {
+  name: 'mariadb',
+  url: 'https://mariadb.org',
+  src: 'https://www.vectorlogo.zone/logos/mariadb/mariadb-icon.svg',
+  invert: false,
+}
+
+export const aws: Tool = {
+  name: 'aws',
+  url: 'https://aws.amazon.com',
+  src: 'https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg',
+  invert: false,
+}
+
+export const githubActions: Tool = {
+  name: 'github actions',
+  url: 'https://github.com/features/actions',
+  src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/githubactions/githubactions-original.svg',
+  invert: false,
+}
+
+export const socketio: Tool = {
+  name: 'socket.io',
+  url: 'https://socket.io',
+  src: 'https://www.vectorlogo.zone/logos/socketio/socketio-icon.svg',
+  invert: true,
+}
+
+export const prometheus: Tool = {
+  name: 'prometheus',
+  url: 'https://prometheus.io',
+  src: 'https://www.vectorlogo.zone/logos/prometheusio/prometheusio-icon.svg',
+  invert: false,
+}
+
+export const playwright: Tool = {
+  name: 'playwright',
+  url: 'https://playwright.dev',
+  src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/playwright/playwright-original.svg',
   invert: false,
 }

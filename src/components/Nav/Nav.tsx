@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import { pokemonContext } from '../../context/allContext'
 import { useLanguage } from '../../context/languageContext'
+import { contact } from '../../data/profile'
 
 export const Nav: React.FC = (): JSX.Element => {
   const [pokemon]: any = useContext(pokemonContext)
-  const { language, setLanguage } = useLanguage()
+  const { language, setLanguage, t } = useLanguage()
 
   const toggleLanguage = () => {
     setLanguage(language === 'es' ? 'en' : 'es')
@@ -28,6 +29,21 @@ export const Nav: React.FC = (): JSX.Element => {
             {language === 'es' ? '🇪🇸 ES' : '🇺🇸 EN'}
           </button>
 
+          <a href={contact.cv[language]} download title={t.nav.downloadCVTitle}>
+            <button className="group flex justify-center items-center gap-2 group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-neutral-900 duration-500 hover:duration-500 underline underline-offset-2 hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-neutral-300 relative bg-neutral-900 px-3 py-2 border text-left p-3 text-gray-50 text-sm font-bold rounded-lg overflow-hidden after:absolute after:z-10 after:w-12 after:h-12 after:content[''] after:bg-sky-900 after:-left-8 after:top-8 after:rounded-full after:blur-lg hover:after:animate-pulse">
+              <svg className="w-5 h-5 fill-neutral-50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"></path>
+              </svg>
+              {t.nav.downloadCV}
+            </button>
+          </a>
+          <a href={`mailto:${contact.email}`} title={t.nav.email}>
+            <button className="group flex justify-center items-center gap-2 group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-neutral-900 duration-500 hover:duration-500 underline underline-offset-2 hover:underline hover:underline-offset-4 origin-left hover:decoration-2 hover:text-neutral-300 relative bg-neutral-900 px-2 py-2 border text-left p-3 text-gray-50 text-base font-bold rounded-lg overflow-hidden after:absolute after:z-10 after:w-12 after:h-12 after:content[''] after:bg-sky-900 after:-left-8 after:top-8 after:rounded-full after:blur-lg hover:after:animate-pulse">
+              <svg className="w-6 h-6 fill-neutral-50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+              </svg>
+            </button>
+          </a>
           <a
             href="https://www.linkedin.com/in/juan-marcos-mansilla"
             target="_blank"

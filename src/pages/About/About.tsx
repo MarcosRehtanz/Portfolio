@@ -4,6 +4,7 @@ import { IconLink } from '../../components/IconLink/IconLink'
 import { SEO } from '../../components/SEO'
 import { useLanguage } from '../../context/languageContext'
 import { WorkExperience } from '../../components/WorkExperience'
+import { Background } from '../../components/Background'
 
 export const About = () => {
   const { t } = useLanguage()
@@ -15,7 +16,7 @@ export const About = () => {
         description={t.about.description}
         name={t.about.name}
         type="website"
-        image="profile.jpeg"
+        image={`${window.location.origin}/profile.jpeg`}
         url={window.location.href}
       />
       <div className="mx-5 md:mx-auto bg-[--color-1] rounded-xl shadow-md overflow-hidden md:max-w-3xl m-5">
@@ -72,6 +73,7 @@ export const About = () => {
       </div>
 
       <WorkExperience />
+      <Background />
       <Experience />
     </div>
   )

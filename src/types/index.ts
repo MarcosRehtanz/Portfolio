@@ -1,4 +1,5 @@
 import { IconNames } from "../assets/icons";
+import type { Language, Translations } from "../i18n";
 
 export type StateKeys =
   | "hp"
@@ -26,9 +27,9 @@ export interface Project {
   title: string;
   img: string;
   link: string | null;
-  description: string;
+  description: Record<Language, string>;
   tags: Tag[];
   stacks: Tool[];
-  buttonLink: string;
+  buttonLink: keyof Translations["projects"] | null;
   logo: React.JSX.Element | null;
 }

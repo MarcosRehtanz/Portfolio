@@ -1,18 +1,23 @@
 {
   "nav": {
-    "language": "ES"
+    "language": "ES",
+    "email": "Enviar email",
+    "downloadCV": "CV",
+    "downloadCVTitle": "Descargar CV (PDF)"
   },
   "about": {
     "greeting": "Hola, soy",
     "name": "Juan Mansilla",
-    "title": "Software Engineer | Cloud & Backend",
-    "description": "Software Engineer con 5 años de experiencia especializado en arquitectura cloud, backend y DevOps. Experiencia en diseño de sistemas multi-tenant, implementación de seguridad (protección DDoS, rate limiting) y pipelines CI/CD. Dominio de Node.js, NestJS, Python, PostgreSQL y herramientas de infraestructura como Nginx, Docker, Cloudflare y GitHub Actions.",
-    "available": "Disponible para reubicación"
+    "title": "Software Engineer | Backend & Cloud",
+    "description": "Software Engineer con 3+ años de experiencia profesional en dos software factories (Colombia y Argentina), desarrollando ERPs en producción, plataformas SaaS multi-tenant y sistemas en tiempo real. Entregué ERPs con pagos live en MercadoPago, WebSockets, colas con BullMQ y monitoreo con Prometheus. Lideré la migración de 200 tablas de MyISAM a InnoDB en producción, integré AWS Secrets Manager en un ERP .NET y realicé hardening de seguridad en sistemas PHP legacy. Hoy trabajo en DynnamoCrypt (Bahía Blanca) y en Kheiron Company (remoto).",
+    "available": "Disponible para trabajo remoto global o presencial en Argentina"
   },
   "sections": {
     "projects": "Proyectos",
     "experience": "Experiencia",
-    "skills": "Habilidades"
+    "skills": "Habilidades",
+    "languages": "Idiomas",
+    "education": "Formación"
   },
   "experience": {
     "present": "Actualidad",
@@ -22,5 +27,13 @@
     "viewProject": "Ver proyecto",
     "viewVideo": "Ver video",
     "playGame": "Jugar"
+  },
+  "skills": {
+    "languages": "Lenguajes",
+    "databases": "Bases de Datos",
+    "frontend": "Frontend",
+    "servers": "Infraestructura",
+    "backend": "Backend",
+    "tools": "Herramientas"
   }
 }
