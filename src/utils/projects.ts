@@ -34,8 +34,8 @@ const Luriam: Project = {
   title: "Luriam",
   img: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&h=300&fit=crop",
   description: {
-    es: "CRM de turnos y clientes en tiempo real para negocios de bienestar: agenda con Socket.io, colas con BullMQ, correo con AWS SES y notificaciones push.",
-    en: "Real-time appointment and client CRM for wellness businesses: Socket.io scheduling, BullMQ job queues, AWS SES email and push notifications.",
+    es: "Plataforma a medida para una sucursal de masajes en México: agenda en tiempo real con Socket.io, gestión de turnos y clientes, colas con BullMQ, correo con AWS SES y notificaciones push.",
+    en: "Custom platform for a massage branch in Mexico: real-time scheduling with Socket.io, appointment and client management, BullMQ job queues, AWS SES email and push notifications.",
   },
   link: "https://demo.luriam.com.mx",
   tags: [Tag.CRM, Tag.SocketIo, Tag.Dashboard],

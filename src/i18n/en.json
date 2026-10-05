@@ -9,7 +9,7 @@
     "greeting": "Hi, I'm",
     "name": "Juan Mansilla",
     "title": "Software Engineer | Backend & Cloud",
-    "description": "Software Engineer with 3+ years of professional experience across two software factories (Colombia & Argentina), building production ERPs, multi-tenant SaaS platforms and real-time systems. Shipped ERPs with live MercadoPago payments, WebSockets, BullMQ job queues and Prometheus monitoring. Led a 200-table MyISAM→InnoDB production migration, integrated AWS Secrets Manager into a .NET ERP and hardened legacy PHP systems. Currently at DynnamoCrypt (Bahía Blanca) and Kheiron Company (remote).",
+    "description": "Software Engineer with 4+ years in the software industry, working for companies across the US, Colombia, and Argentina. Designs and delivers tourism ERPs, multi-tenant SaaS platforms, and real-time systems with live MercadoPago payments, WebSockets, BullMQ job queues, and Prometheus monitoring. Led a production database engine migration (200 tables, MyISAM→InnoDB), integrated AWS Secrets Manager into a .NET ERP, and hardened legacy PHP systems against SQL injection. Designs, develops, and leads technical coordination of engineering teams, with end-to-end ownership: from architecture and data modeling to production deployment.",
     "available": "Open to remote global or on-site roles in Argentina"
   },
   "sections": {
